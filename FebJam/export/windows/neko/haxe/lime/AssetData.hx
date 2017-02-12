@@ -18,8 +18,20 @@ class AssetData {
 			
 			path.set ("assets/data/data-goes-here.txt", "assets/data/data-goes-here.txt");
 			type.set ("assets/data/data-goes-here.txt", Reflect.field (AssetType, "text".toUpperCase ()));
+			path.set ("assets/fonts/Fonthead Standard EULA.txt", "assets/fonts/Fonthead Standard EULA.txt");
+			type.set ("assets/fonts/Fonthead Standard EULA.txt", Reflect.field (AssetType, "text".toUpperCase ()));
+			path.set ("assets/fonts/GoodDog.otf", "assets/fonts/GoodDog.otf");
+			type.set ("assets/fonts/GoodDog.otf", Reflect.field (AssetType, "font".toUpperCase ()));
+			path.set ("assets/images/cloth.png", "assets/images/cloth.png");
+			type.set ("assets/images/cloth.png", Reflect.field (AssetType, "image".toUpperCase ()));
+			path.set ("assets/images/framedWood.png", "assets/images/framedWood.png");
+			type.set ("assets/images/framedWood.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			path.set ("assets/images/images-go-here.txt", "assets/images/images-go-here.txt");
 			type.set ("assets/images/images-go-here.txt", Reflect.field (AssetType, "text".toUpperCase ()));
+			path.set ("assets/images/table.png", "assets/images/table.png");
+			type.set ("assets/images/table.png", Reflect.field (AssetType, "image".toUpperCase ()));
+			path.set ("assets/images/woodFrame.png", "assets/images/woodFrame.png");
+			type.set ("assets/images/woodFrame.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			path.set ("assets/music/music-goes-here.txt", "assets/music/music-goes-here.txt");
 			type.set ("assets/music/music-goes-here.txt", Reflect.field (AssetType, "text".toUpperCase ()));
 			path.set ("assets/sounds/sounds-go-here.txt", "assets/sounds/sounds-go-here.txt");
