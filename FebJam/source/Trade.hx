@@ -51,9 +51,9 @@ class Trade extends FlxBasic
 	/**
 	 * Changing the terms of the trade
 	 */
-	public function addPlayerFruit(quantity:Int);
+	public function addPlayerFruit(quantity:Int)
 	{
-		player_fruit_offered_ += quantity;
+		player_fruits_offered_ += quantity;
 	}
 	
 	public function subtractPlayerFruit(quantity:Int)
