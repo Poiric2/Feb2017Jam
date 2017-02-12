@@ -15,19 +15,19 @@ class StartState extends FlxState
 	/**
 	 * Variables
 	 */
-	private var playButton_:FlxButton;
-	private var creditButton_:FlxButton;
+	private var play_button_:FlxButton;
+	private var credit_button_:FlxButton;
 
 	/**
 	 * Function that is called up when to state is created to set it up.
 	 */
 	override public function create():Void
 	{
-		playButton_ = new FlxButton(380, 300, "Play", playGame);
-		creditButton_ = new FlxButton(380, 320, "Credits", viewCredits);
+		play_button_ = new FlxButton(380, 300, "Play", playGame);
+		credit_button_ = new FlxButton(380, 320, "Credits", viewCredits);
 
-		add(playButton_);
-		add(creditButton_);
+		add(play_button_);
+		add(credit_button_);
 
 		super.create();
 	}
