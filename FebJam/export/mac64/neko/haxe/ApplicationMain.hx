@@ -40,7 +40,7 @@ class ApplicationMain {
 		telemetryConfig = new hxtelemetry.HxTelemetry.Config ();
 		telemetryConfig.allocations = true;
 		telemetryConfig.host = "localhost";
-		telemetryConfig.app_name = "FebJam";
+		telemetryConfig.app_name = "Fruit Broker";
 		#end
 		
 		
@@ -141,7 +141,7 @@ class ApplicationMain {
 			(false ? flash.Lib.FULLSCREEN : 0) |
 			(0 == 4 ? flash.Lib.HW_AA_HIRES : 0) |
 			(0 == 2 ? flash.Lib.HW_AA : 0),
-			"FebJam",
+			"Fruit Broker",
 			null
 			#if mobile, ScaledStage #end
 		);
@@ -325,7 +325,7 @@ class ApplicationMain {
 		wx.App.boot (function () {
 			
 			
-			frame = wx.Frame.create (null, null, "FebJam", null, { width: 800, height: 640 });
+			frame = wx.Frame.create (null, null, "Fruit Broker", null, { width: 800, height: 640 });
 			
 			
 			#if openfl
@@ -515,11 +515,11 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "160",
+			build: "368",
 			company: "HaxeFlixel",
 			file: "FebJam",
 			fps: 60,
-			name: "FebJam",
+			name: "Fruit Broker",
 			orientation: "landscape",
 			packageName: "com.example.myapp",
 			version: "0.0.1",
@@ -537,7 +537,7 @@ class ApplicationMain {
 					parameters: "{}",
 					resizable: true,
 					stencilBuffer: false,
-					title: "FebJam",
+					title: "Fruit Broker",
 					vsync: true,
 					width: 800,
 					x: null,

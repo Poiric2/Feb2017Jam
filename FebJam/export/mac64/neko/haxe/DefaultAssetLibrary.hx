@@ -64,6 +64,31 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		Font.registerFont (__ASSET__flixel_fonts_nokiafc22_ttf);
 		Font.registerFont (__ASSET__flixel_fonts_monsterrat_ttf);
 		
@@ -73,6 +98,31 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#if (windows || mac || linux)
 		
 		var useManifest = false;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -590,6 +640,31 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_monsterrat_ttf);
 		
@@ -605,8 +680,58 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/fonts/Fonthead Standard EULA.txt", AssetType.TEXT);
 		path.set ("assets/fonts/GoodDog.otf", "assets/fonts/GoodDog.otf");
 		type.set ("assets/fonts/GoodDog.otf", AssetType.FONT);
-		path.set ("assets/images/images-go-here.txt", "assets/images/images-go-here.txt");
-		type.set ("assets/images/images-go-here.txt", AssetType.TEXT);
+		path.set ("assets/images/fruits/apple.png", "assets/images/fruits/apple.png");
+		type.set ("assets/images/fruits/apple.png", AssetType.IMAGE);
+		path.set ("assets/images/fruits/banana.png", "assets/images/fruits/banana.png");
+		type.set ("assets/images/fruits/banana.png", AssetType.IMAGE);
+		path.set ("assets/images/fruits/coconut.png", "assets/images/fruits/coconut.png");
+		type.set ("assets/images/fruits/coconut.png", AssetType.IMAGE);
+		path.set ("assets/images/fruits/grape.png", "assets/images/fruits/grape.png");
+		type.set ("assets/images/fruits/grape.png", AssetType.IMAGE);
+		path.set ("assets/images/fruits/kiwi.png", "assets/images/fruits/kiwi.png");
+		type.set ("assets/images/fruits/kiwi.png", AssetType.IMAGE);
+		path.set ("assets/images/fruits/pear.png", "assets/images/fruits/pear.png");
+		type.set ("assets/images/fruits/pear.png", AssetType.IMAGE);
+		path.set ("assets/images/fruits/plum.png", "assets/images/fruits/plum.png");
+		type.set ("assets/images/fruits/plum.png", AssetType.IMAGE);
+		path.set ("assets/images/fruits/watermelon.png", "assets/images/fruits/watermelon.png");
+		type.set ("assets/images/fruits/watermelon.png", AssetType.IMAGE);
+		path.set ("assets/images/traders/trader1.png", "assets/images/traders/trader1.png");
+		type.set ("assets/images/traders/trader1.png", AssetType.IMAGE);
+		path.set ("assets/images/traders/trader2.png", "assets/images/traders/trader2.png");
+		type.set ("assets/images/traders/trader2.png", AssetType.IMAGE);
+		path.set ("assets/images/traders/trader3.png", "assets/images/traders/trader3.png");
+		type.set ("assets/images/traders/trader3.png", AssetType.IMAGE);
+		path.set ("assets/images/traders/trader4.png", "assets/images/traders/trader4.png");
+		type.set ("assets/images/traders/trader4.png", AssetType.IMAGE);
+		path.set ("assets/images/traders/trader5.png", "assets/images/traders/trader5.png");
+		type.set ("assets/images/traders/trader5.png", AssetType.IMAGE);
+		path.set ("assets/images/ui/accept.png", "assets/images/ui/accept.png");
+		type.set ("assets/images/ui/accept.png", AssetType.IMAGE);
+		path.set ("assets/images/ui/background.png", "assets/images/ui/background.png");
+		type.set ("assets/images/ui/background.png", AssetType.IMAGE);
+		path.set ("assets/images/ui/bottomFrame.png", "assets/images/ui/bottomFrame.png");
+		type.set ("assets/images/ui/bottomFrame.png", AssetType.IMAGE);
+		path.set ("assets/images/ui/down.png", "assets/images/ui/down.png");
+		type.set ("assets/images/ui/down.png", AssetType.IMAGE);
+		path.set ("assets/images/ui/number.png", "assets/images/ui/number.png");
+		type.set ("assets/images/ui/number.png", AssetType.IMAGE);
+		path.set ("assets/images/ui/overlay.png", "assets/images/ui/overlay.png");
+		type.set ("assets/images/ui/overlay.png", AssetType.IMAGE);
+		path.set ("assets/images/ui/reject.png", "assets/images/ui/reject.png");
+		type.set ("assets/images/ui/reject.png", AssetType.IMAGE);
+		path.set ("assets/images/ui/scroll.png", "assets/images/ui/scroll.png");
+		type.set ("assets/images/ui/scroll.png", AssetType.IMAGE);
+		path.set ("assets/images/ui/splash.png", "assets/images/ui/splash.png");
+		type.set ("assets/images/ui/splash.png", AssetType.IMAGE);
+		path.set ("assets/images/ui/splashButton.png", "assets/images/ui/splashButton.png");
+		type.set ("assets/images/ui/splashButton.png", AssetType.IMAGE);
+		path.set ("assets/images/ui/up.png", "assets/images/ui/up.png");
+		type.set ("assets/images/ui/up.png", AssetType.IMAGE);
+		path.set ("assets/music/home.ogg", "assets/music/home.ogg");
+		type.set ("assets/music/home.ogg", AssetType.SOUND);
+		path.set ("assets/music/introtheme.ogg", "assets/music/introtheme.ogg");
+		type.set ("assets/music/introtheme.ogg", AssetType.SOUND);
 		path.set ("assets/music/music-goes-here.txt", "assets/music/music-goes-here.txt");
 		type.set ("assets/music/music-goes-here.txt", AssetType.TEXT);
 		path.set ("assets/sounds/sounds-go-here.txt", "assets/sounds/sounds-go-here.txt");
@@ -637,9 +762,84 @@ class DefaultAssetLibrary extends AssetLibrary {
 		id = "assets/fonts/GoodDog.otf";
 		path.set (id, id);
 		type.set (id, AssetType.FONT);
-		id = "assets/images/images-go-here.txt";
+		id = "assets/images/fruits/apple.png";
 		path.set (id, id);
-		type.set (id, AssetType.TEXT);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/fruits/banana.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/fruits/coconut.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/fruits/grape.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/fruits/kiwi.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/fruits/pear.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/fruits/plum.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/fruits/watermelon.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/traders/trader1.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/traders/trader2.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/traders/trader3.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/traders/trader4.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/traders/trader5.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/ui/accept.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/ui/background.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/ui/bottomFrame.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/ui/down.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/ui/number.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/ui/overlay.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/ui/reject.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/ui/scroll.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/ui/splash.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/ui/splashButton.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/ui/up.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/music/home.ogg";
+		path.set (id, id);
+		type.set (id, AssetType.SOUND);
+		id = "assets/music/introtheme.ogg";
+		path.set (id, id);
+		type.set (id, AssetType.SOUND);
 		id = "assets/music/music-goes-here.txt";
 		path.set (id, id);
 		type.set (id, AssetType.TEXT);
@@ -692,6 +892,31 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/fonts/GoodDog.otf", __ASSET__assets_fonts_gooddog_otf);
 		type.set ("assets/fonts/GoodDog.otf", AssetType.FONT);
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -1437,6 +1662,31 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @:keep @:bind #if display private #end class __ASSET__flixel_sounds_beep_ogg extends null { }
 @:keep @:bind #if display private #end class __ASSET__flixel_sounds_flixel_ogg extends null { }
 @:keep @:bind #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends null { }
@@ -1450,6 +1700,31 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 @:keep #if display private #end class __ASSET__assets_fonts_gooddog_otf extends lime.text.Font { public function new () { super (); name = "GoodDog"; } } 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
