@@ -58,6 +58,8 @@ class AssetData {
 			type.set ("assets/images/ui/accept.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			path.set ("assets/images/ui/background.png", "assets/images/ui/background.png");
 			type.set ("assets/images/ui/background.png", Reflect.field (AssetType, "image".toUpperCase ()));
+			path.set ("assets/images/ui/bigCoin.png", "assets/images/ui/bigCoin.png");
+			type.set ("assets/images/ui/bigCoin.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			path.set ("assets/images/ui/bottomFrame.png", "assets/images/ui/bottomFrame.png");
 			type.set ("assets/images/ui/bottomFrame.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			path.set ("assets/images/ui/credits.png", "assets/images/ui/credits.png");
@@ -72,6 +74,8 @@ class AssetData {
 			type.set ("assets/images/ui/reject.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			path.set ("assets/images/ui/scroll.png", "assets/images/ui/scroll.png");
 			type.set ("assets/images/ui/scroll.png", Reflect.field (AssetType, "image".toUpperCase ()));
+			path.set ("assets/images/ui/smallCoin.png", "assets/images/ui/smallCoin.png");
+			type.set ("assets/images/ui/smallCoin.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			path.set ("assets/images/ui/splash.png", "assets/images/ui/splash.png");
 			type.set ("assets/images/ui/splash.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			path.set ("assets/images/ui/splashButton.png", "assets/images/ui/splashButton.png");

@@ -94,6 +94,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
 		Font.registerFont (__ASSET__flixel_fonts_nokiafc22_ttf);
 		Font.registerFont (__ASSET__flixel_fonts_monsterrat_ttf);
 		
@@ -103,6 +105,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#if (windows || mac || linux)
 		
 		var useManifest = false;
+		useManifest = true;
+		useManifest = true;
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -680,6 +684,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_monsterrat_ttf);
 		
@@ -731,6 +737,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/ui/accept.png", AssetType.IMAGE);
 		path.set ("assets/images/ui/background.png", "assets/images/ui/background.png");
 		type.set ("assets/images/ui/background.png", AssetType.IMAGE);
+		path.set ("assets/images/ui/bigCoin.png", "assets/images/ui/bigCoin.png");
+		type.set ("assets/images/ui/bigCoin.png", AssetType.IMAGE);
 		path.set ("assets/images/ui/bottomFrame.png", "assets/images/ui/bottomFrame.png");
 		type.set ("assets/images/ui/bottomFrame.png", AssetType.IMAGE);
 		path.set ("assets/images/ui/credits.png", "assets/images/ui/credits.png");
@@ -745,6 +753,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/ui/reject.png", AssetType.IMAGE);
 		path.set ("assets/images/ui/scroll.png", "assets/images/ui/scroll.png");
 		type.set ("assets/images/ui/scroll.png", AssetType.IMAGE);
+		path.set ("assets/images/ui/smallCoin.png", "assets/images/ui/smallCoin.png");
+		type.set ("assets/images/ui/smallCoin.png", AssetType.IMAGE);
 		path.set ("assets/images/ui/splash.png", "assets/images/ui/splash.png");
 		type.set ("assets/images/ui/splash.png", AssetType.IMAGE);
 		path.set ("assets/images/ui/splashButton.png", "assets/images/ui/splashButton.png");
@@ -841,6 +851,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		id = "assets/images/ui/background.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
+		id = "assets/images/ui/bigCoin.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
 		id = "assets/images/ui/bottomFrame.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
@@ -860,6 +873,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
 		id = "assets/images/ui/scroll.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/ui/smallCoin.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
 		id = "assets/images/ui/splash.png";
@@ -932,6 +948,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/fonts/GoodDog.otf", __ASSET__assets_fonts_gooddog_otf);
 		type.set ("assets/fonts/GoodDog.otf", AssetType.FONT);
+		useManifest = true;
+		useManifest = true;
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -1737,6 +1755,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
+
 @:keep @:bind #if display private #end class __ASSET__flixel_sounds_beep_ogg extends null { }
 @:keep @:bind #if display private #end class __ASSET__flixel_sounds_flixel_ogg extends null { }
 @:keep @:bind #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends null { }
@@ -1750,6 +1770,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 @:keep #if display private #end class __ASSET__assets_fonts_gooddog_otf extends lime.text.Font { public function new () { super (); name = "GoodDog"; } } 
+
+
 
 
 

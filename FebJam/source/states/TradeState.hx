@@ -1,6 +1,7 @@
 package states;
 
 import sprites.*;
+import flixel.FlxSprite;
 import sprites.ui.*;
 import sprites.fruit.*;
 import mechanics.*;
@@ -40,6 +41,11 @@ class TradeState extends FlxState
 	private var _overlay_header:FlxText;
 	private var _overlay_text:FlxText;
 	private var _next_text:FlxText;
+	
+	private var _top_coin:FlxSprite;
+	private var _coin_count:FlxText;
+	private var _top_kiwi:FlxSprite;
+	private var _kiwi_count:FlxText;
 
   override public function create():Void
 	{
@@ -93,7 +99,21 @@ class TradeState extends FlxState
 		add(_scroll_sprite);
 
 		// createScroller(50,192,0,_traders[_current]);
-		createScroller(706,192,1,_player);
+		createScroller(706, 192, 1, _player);
+		
+		_top_coin = new FlxSprite(400, 10, AssetPaths.smallCoin__png);
+		add(_top_coin);
+		_coin_count = new FlxText(200, -5, 200, "0");
+		_coin_count.setFormat("assets/fonts/GoodDog.otf", 45, 0xFF573A30, RIGHT);
+		add(_coin_count);
+		
+		
+		_top_kiwi = new FlxSprite(600,5);
+		_top_kiwi.loadGraphic(AssetPaths.kiwi__png, true, 32, 32);
+		add(_top_kiwi);
+		_kiwi_count = new FlxText(400, -5, 200, "100");
+		_kiwi_count.setFormat("assets/fonts/GoodDog.otf", 45, 0xFF573A30, RIGHT);
+		add(_kiwi_count);
 
 		_accept = new FlxButton(330,441,"",accept);
 		_decline = new FlxButton(426,441,"",decline);
