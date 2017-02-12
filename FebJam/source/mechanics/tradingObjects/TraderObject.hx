@@ -21,17 +21,17 @@ class TraderObject extends FlxBasic
 		super();
 	}
 
-	public function trade(name:String, fruit_traded:Int):Bool
-	{
-		var index = TraderObject.options_.indexOf(name);
-
-		if (fruit_traded <= fruit_remaining_[index]) {
-			fruit_remaining_[index] -= fruit_traded;
-			return true;
-		}
-
-		return false;
-	}
+	// public function trade(name:String, fruit_traded:Int):Bool
+	// {
+	// 	var index = TraderObject.options_.indexOf(name);
+	//
+	// 	if (fruit_traded <= fruit_remaining_[index]) {
+	// 		fruit_remaining_[index] -= fruit_traded;
+	// 		return true;
+	// 	}
+	//
+	// 	return false;
+	// }
 
 	public function howMany(name:String):Int
 	{
