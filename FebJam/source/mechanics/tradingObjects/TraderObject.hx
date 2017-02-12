@@ -12,6 +12,7 @@ class TraderObject extends FlxBasic
 
 	public static var options_(default, null):Array<String> = ["Apple","Banana","Coconut","Grape","Kiwi","Pear","Plum","Watermelon"];
 
+	public static var prices_(default,null):Array<Int> = [3,5,6,2,4,3,7,4];
 	public function new()
 	{
 		fruit_remaining_ = new Array<Int>();
