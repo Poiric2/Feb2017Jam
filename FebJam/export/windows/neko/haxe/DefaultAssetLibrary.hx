@@ -62,8 +62,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
-		Font.registerFont (__ASSET__assets_fonts_nokiafc22_ttf);
-		Font.registerFont (__ASSET__assets_fonts_arial_ttf);
+		Font.registerFont (__ASSET__flixel_fonts_nokiafc22_ttf);
+		Font.registerFont (__ASSET__flixel_fonts_monsterrat_ttf);
+		
+		
 		
 		
 		#if (windows || mac || linux)
@@ -73,14 +75,24 @@ class DefaultAssetLibrary extends AssetLibrary {
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
-		useManifest = true;
-		useManifest = true;
 		
-		className.set ("assets/fonts/nokiafc22.ttf", __ASSET__assets_fonts_nokiafc22_ttf);
-		type.set ("assets/fonts/nokiafc22.ttf", AssetType.FONT);
+		className.set ("flixel/sounds/beep.ogg", __ASSET__flixel_sounds_beep_ogg);
+		type.set ("flixel/sounds/beep.ogg", AssetType.SOUND);
 		
-		className.set ("assets/fonts/arial.ttf", __ASSET__assets_fonts_arial_ttf);
-		type.set ("assets/fonts/arial.ttf", AssetType.FONT);
+		className.set ("flixel/sounds/flixel.ogg", __ASSET__flixel_sounds_flixel_ogg);
+		type.set ("flixel/sounds/flixel.ogg", AssetType.SOUND);
+		
+		className.set ("flixel/fonts/nokiafc22.ttf", __ASSET__flixel_fonts_nokiafc22_ttf);
+		type.set ("flixel/fonts/nokiafc22.ttf", AssetType.FONT);
+		
+		className.set ("flixel/fonts/monsterrat.ttf", __ASSET__flixel_fonts_monsterrat_ttf);
+		type.set ("flixel/fonts/monsterrat.ttf", AssetType.FONT);
+		
+		className.set ("flixel/images/ui/button.png", __ASSET__flixel_images_ui_button_png);
+		type.set ("flixel/images/ui/button.png", AssetType.IMAGE);
+		
+		className.set ("flixel/images/logo/default.png", __ASSET__flixel_images_logo_default_png);
+		type.set ("flixel/images/logo/default.png", AssetType.IMAGE);
 		
 		
 		if (useManifest) {
@@ -486,8 +498,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if (windows || mac || linux)
 
 
-@:font("C:/HaxeToolkit/haxe/lib/flixel/3,3,11/assets/fonts/nokiafc22.ttf") @:keep #if display private #end class __ASSET__assets_fonts_nokiafc22_ttf extends flash.text.Font {}
-@:font("C:/HaxeToolkit/haxe/lib/flixel/3,3,11/assets/fonts/arial.ttf") @:keep #if display private #end class __ASSET__assets_fonts_arial_ttf extends flash.text.Font {}
+@:sound("C:/HaxeToolkit/haxe/lib/flixel/4,2,0/assets/sounds/beep.ogg") @:keep #if display private #end class __ASSET__flixel_sounds_beep_ogg extends flash.media.Sound {}
+@:sound("C:/HaxeToolkit/haxe/lib/flixel/4,2,0/assets/sounds/flixel.ogg") @:keep #if display private #end class __ASSET__flixel_sounds_flixel_ogg extends flash.media.Sound {}
+@:font("C:/HaxeToolkit/haxe/lib/flixel/4,2,0/assets/fonts/nokiafc22.ttf") @:keep #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends flash.text.Font {}
+@:font("C:/HaxeToolkit/haxe/lib/flixel/4,2,0/assets/fonts/monsterrat.ttf") @:keep #if display private #end class __ASSET__flixel_fonts_monsterrat_ttf extends flash.text.Font {}
+@:bitmap("C:/HaxeToolkit/haxe/lib/flixel/4,2,0/assets/images/ui/button.png") @:keep #if display private #end class __ASSET__flixel_images_ui_button_png extends flash.display.BitmapData {}
+@:bitmap("C:/HaxeToolkit/haxe/lib/flixel/4,2,0/assets/images/logo/default.png") @:keep #if display private #end class __ASSET__flixel_images_logo_default_png extends flash.display.BitmapData {}
 
 
 
@@ -496,8 +512,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 #else
 
 
-class __ASSET__assets_fonts_nokiafc22_ttf extends openfl.text.Font { public function new () { super (); __fontPath = "assets/fonts/nokiafc22.ttf"; fontName = "Nokia Cellphone FC Small";  }}
-class __ASSET__assets_fonts_arial_ttf extends openfl.text.Font { public function new () { super (); __fontPath = "assets/fonts/arial.ttf"; fontName = "Arial";  }}
+class __ASSET__flixel_fonts_nokiafc22_ttf extends openfl.text.Font { public function new () { super (); __fontPath = "flixel/fonts/nokiafc22.ttf"; fontName = "Nokia Cellphone FC Small";  }}
+class __ASSET__flixel_fonts_monsterrat_ttf extends openfl.text.Font { public function new () { super (); __fontPath = "flixel/fonts/monsterrat.ttf"; fontName = "Monsterrat";  }}
 
 
 #end
@@ -566,8 +582,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
-		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_fonts_nokiafc22_ttf);
-		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_fonts_arial_ttf);
+		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf);
+		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_monsterrat_ttf);
+		
+		
 		
 		#end
 		
@@ -581,14 +599,18 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/music/music-goes-here.txt", AssetType.TEXT);
 		path.set ("assets/sounds/sounds-go-here.txt", "assets/sounds/sounds-go-here.txt");
 		type.set ("assets/sounds/sounds-go-here.txt", AssetType.TEXT);
-		path.set ("assets/sounds/beep.ogg", "assets/sounds/beep.ogg");
-		type.set ("assets/sounds/beep.ogg", AssetType.SOUND);
-		path.set ("assets/sounds/flixel.ogg", "assets/sounds/flixel.ogg");
-		type.set ("assets/sounds/flixel.ogg", AssetType.SOUND);
-		className.set ("assets/fonts/nokiafc22.ttf", __ASSET__assets_fonts_nokiafc22_ttf);
-		type.set ("assets/fonts/nokiafc22.ttf", AssetType.FONT);
-		className.set ("assets/fonts/arial.ttf", __ASSET__assets_fonts_arial_ttf);
-		type.set ("assets/fonts/arial.ttf", AssetType.FONT);
+		className.set ("flixel/sounds/beep.ogg", __ASSET__flixel_sounds_beep_ogg);
+		type.set ("flixel/sounds/beep.ogg", AssetType.SOUND);
+		className.set ("flixel/sounds/flixel.ogg", __ASSET__flixel_sounds_flixel_ogg);
+		type.set ("flixel/sounds/flixel.ogg", AssetType.SOUND);
+		className.set ("flixel/fonts/nokiafc22.ttf", __ASSET__flixel_fonts_nokiafc22_ttf);
+		type.set ("flixel/fonts/nokiafc22.ttf", AssetType.FONT);
+		className.set ("flixel/fonts/monsterrat.ttf", __ASSET__flixel_fonts_monsterrat_ttf);
+		type.set ("flixel/fonts/monsterrat.ttf", AssetType.FONT);
+		className.set ("flixel/images/ui/button.png", __ASSET__flixel_images_ui_button_png);
+		type.set ("flixel/images/ui/button.png", AssetType.IMAGE);
+		className.set ("flixel/images/logo/default.png", __ASSET__flixel_images_logo_default_png);
+		type.set ("flixel/images/logo/default.png", AssetType.IMAGE);
 		
 		
 		#elseif html5
@@ -606,20 +628,30 @@ class DefaultAssetLibrary extends AssetLibrary {
 		id = "assets/sounds/sounds-go-here.txt";
 		path.set (id, id);
 		type.set (id, AssetType.TEXT);
-		id = "assets/sounds/beep.ogg";
+		id = "flixel/sounds/beep.ogg";
 		path.set (id, id);
+		
 		type.set (id, AssetType.SOUND);
-		id = "assets/sounds/flixel.ogg";
+		id = "flixel/sounds/flixel.ogg";
 		path.set (id, id);
+		
 		type.set (id, AssetType.SOUND);
-		id = "assets/fonts/nokiafc22.ttf";
-		className.set (id, __ASSET__assets_fonts_nokiafc22_ttf);
+		id = "flixel/fonts/nokiafc22.ttf";
+		className.set (id, __ASSET__flixel_fonts_nokiafc22_ttf);
 		
 		type.set (id, AssetType.FONT);
-		id = "assets/fonts/arial.ttf";
-		className.set (id, __ASSET__assets_fonts_arial_ttf);
+		id = "flixel/fonts/monsterrat.ttf";
+		className.set (id, __ASSET__flixel_fonts_monsterrat_ttf);
 		
 		type.set (id, AssetType.FONT);
+		id = "flixel/images/ui/button.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "flixel/images/logo/default.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
 		
 		
 		var assetsPrefix = null;
@@ -641,14 +673,24 @@ class DefaultAssetLibrary extends AssetLibrary {
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
-		useManifest = true;
-		useManifest = true;
 		
-		className.set ("assets/fonts/nokiafc22.ttf", __ASSET__assets_fonts_nokiafc22_ttf);
-		type.set ("assets/fonts/nokiafc22.ttf", AssetType.FONT);
+		className.set ("flixel/sounds/beep.ogg", __ASSET__flixel_sounds_beep_ogg);
+		type.set ("flixel/sounds/beep.ogg", AssetType.SOUND);
 		
-		className.set ("assets/fonts/arial.ttf", __ASSET__assets_fonts_arial_ttf);
-		type.set ("assets/fonts/arial.ttf", AssetType.FONT);
+		className.set ("flixel/sounds/flixel.ogg", __ASSET__flixel_sounds_flixel_ogg);
+		type.set ("flixel/sounds/flixel.ogg", AssetType.SOUND);
+		
+		className.set ("flixel/fonts/nokiafc22.ttf", __ASSET__flixel_fonts_nokiafc22_ttf);
+		type.set ("flixel/fonts/nokiafc22.ttf", AssetType.FONT);
+		
+		className.set ("flixel/fonts/monsterrat.ttf", __ASSET__flixel_fonts_monsterrat_ttf);
+		type.set ("flixel/fonts/monsterrat.ttf", AssetType.FONT);
+		
+		className.set ("flixel/images/ui/button.png", __ASSET__flixel_images_ui_button_png);
+		type.set ("flixel/images/ui/button.png", AssetType.IMAGE);
+		
+		className.set ("flixel/images/logo/default.png", __ASSET__flixel_images_logo_default_png);
+		type.set ("flixel/images/logo/default.png", AssetType.IMAGE);
 		
 		
 		if (useManifest) {
@@ -1371,10 +1413,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
-
-
-@:keep @:bind #if display private #end class __ASSET__assets_fonts_nokiafc22_ttf extends null { }
-@:keep @:bind #if display private #end class __ASSET__assets_fonts_arial_ttf extends null { }
+@:keep @:bind #if display private #end class __ASSET__flixel_sounds_beep_ogg extends null { }
+@:keep @:bind #if display private #end class __ASSET__flixel_sounds_flixel_ogg extends null { }
+@:keep @:bind #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends null { }
+@:keep @:bind #if display private #end class __ASSET__flixel_fonts_monsterrat_ttf extends null { }
+@:keep @:bind #if display private #end class __ASSET__flixel_images_ui_button_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__flixel_images_logo_default_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 
 
 #elseif html5
@@ -1385,8 +1429,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
-@:keep #if display private #end class __ASSET__assets_fonts_nokiafc22_ttf extends lime.text.Font { public function new () { super (); name = "Nokia Cellphone FC Small"; } } 
-@:keep #if display private #end class __ASSET__assets_fonts_arial_ttf extends lime.text.Font { public function new () { super (); name = "Arial"; } } 
+@:keep #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends lime.text.Font { public function new () { super (); name = "Nokia Cellphone FC Small"; } } 
+@:keep #if display private #end class __ASSET__flixel_fonts_monsterrat_ttf extends lime.text.Font { public function new () { super (); name = "Monsterrat"; } } 
+
+
 
 
 #else
@@ -1396,8 +1442,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if (windows || mac || linux || cpp)
 
 
-@:font("C:/HaxeToolkit/haxe/lib/flixel/3,3,11/assets/fonts/nokiafc22.ttf") #if display private #end class __ASSET__assets_fonts_nokiafc22_ttf extends lime.text.Font {}
-@:font("C:/HaxeToolkit/haxe/lib/flixel/3,3,11/assets/fonts/arial.ttf") #if display private #end class __ASSET__assets_fonts_arial_ttf extends lime.text.Font {}
+@:file("C:/HaxeToolkit/haxe/lib/flixel/4,2,0/assets/sounds/beep.ogg") #if display private #end class __ASSET__flixel_sounds_beep_ogg extends lime.utils.ByteArray {}
+@:file("C:/HaxeToolkit/haxe/lib/flixel/4,2,0/assets/sounds/flixel.ogg") #if display private #end class __ASSET__flixel_sounds_flixel_ogg extends lime.utils.ByteArray {}
+@:font("C:/HaxeToolkit/haxe/lib/flixel/4,2,0/assets/fonts/nokiafc22.ttf") #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends lime.text.Font {}
+@:font("C:/HaxeToolkit/haxe/lib/flixel/4,2,0/assets/fonts/monsterrat.ttf") #if display private #end class __ASSET__flixel_fonts_monsterrat_ttf extends lime.text.Font {}
+@:image("C:/HaxeToolkit/haxe/lib/flixel/4,2,0/assets/images/ui/button.png") #if display private #end class __ASSET__flixel_images_ui_button_png extends lime.graphics.Image {}
+@:image("C:/HaxeToolkit/haxe/lib/flixel/4,2,0/assets/images/logo/default.png") #if display private #end class __ASSET__flixel_images_logo_default_png extends lime.graphics.Image {}
 
 
 
@@ -1405,8 +1455,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 #end
 
 #if (openfl && !flash)
-@:keep #if display private #end class __ASSET__OPENFL__assets_fonts_nokiafc22_ttf extends openfl.text.Font { public function new () { var font = new __ASSET__assets_fonts_nokiafc22_ttf (); src = font.src; name = font.name; super (); }}
-@:keep #if display private #end class __ASSET__OPENFL__assets_fonts_arial_ttf extends openfl.text.Font { public function new () { var font = new __ASSET__assets_fonts_arial_ttf (); src = font.src; name = font.name; super (); }}
+@:keep #if display private #end class __ASSET__OPENFL__flixel_fonts_nokiafc22_ttf extends openfl.text.Font { public function new () { var font = new __ASSET__flixel_fonts_nokiafc22_ttf (); src = font.src; name = font.name; super (); }}
+@:keep #if display private #end class __ASSET__OPENFL__flixel_fonts_monsterrat_ttf extends openfl.text.Font { public function new () { var font = new __ASSET__flixel_fonts_monsterrat_ttf (); src = font.src; name = font.name; super (); }}
 
 #end
 

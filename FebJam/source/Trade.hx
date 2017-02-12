@@ -1,11 +1,11 @@
 package;
 
 import flixel.FlxBasic;
-import flixel.util.FlxRandom;
+import flixel.FlxG;
 
 /**
  * ...
- * @author ...
+ * @author Claira
  */
 class Trade extends FlxBasic
 {
@@ -25,18 +25,18 @@ class Trade extends FlxBasic
 		player_fruit_val_ = 0;
 		player_fruits_offered_ = 0;
 		
-		trader_name_ = new String(all_names_[FlxRandom.intRanged(0, all_names_.length - 1)]);
-		trader_num_fruit_types_ = FlxRandom.intRanged(1, 3);
+		trader_name_ = new String(all_names_[ FlxG.random.int(0, all_names_.length - 1) ]);
+		trader_num_fruit_types_ = FlxG.random.int(1, 3);
 		trader_fruit_names_ = new Array<String>();
 		trader_fruit_vals_ = new Array<Int>();
 		
-		for (i in 0...trader_num_fruit_types)
+		for (i in 0...trader_num_fruit_types_)
 		{
 			trader_fruit_names_.push("Pineapple");
-			trader_fruit_vals_.push(FlxRandom.intRanged(1, 3));
+			trader_fruit_vals_.push(FlxG.random.int(1, 3));
 			trader_fruits_offered_.push(0);
 			
-			player_fruit_val_ += FlxRandom.intRanged(2, 4);
+			player_fruit_val_ += FlxG.random.int(2, 4);
 		}
 		
 		super();

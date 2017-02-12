@@ -9,7 +9,7 @@ import flixel.FlxBasic;
 class Player extends FlxBasic
 {
 	private var money_:Int;
-	private var fruit_remaining_:Int
+	private var fruit_remaining_:Int;
 
 	public function new() 
 	{

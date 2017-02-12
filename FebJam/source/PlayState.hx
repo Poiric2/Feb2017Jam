@@ -5,7 +5,7 @@ import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
-import flixel.util.FlxMath;
+import flixel.math.FlxMath;
 
 /**
  * A FlxState which can be used for the actual gameplay.
@@ -25,7 +25,6 @@ class PlayState extends FlxState
 	override public function create():Void
 	{	
 		current_day_ = 1;
-		current_trade_ = 0; // don't start with a trade
 		trades_left_ = 10;
 		traders_left = 20;
 		
@@ -44,8 +43,8 @@ class PlayState extends FlxState
 	/**
 	 * Function that is called once every frame.
 	 */
-	override public function update():Void
+	override public function update(elapsed:Float):Void
 	{
-		super.update();
+		super.update(elapsed);
 	}	
 }
