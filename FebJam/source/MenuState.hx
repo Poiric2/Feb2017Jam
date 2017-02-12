@@ -13,10 +13,22 @@ import flixel.util.FlxMath;
 class MenuState extends FlxState
 {
 	/**
+	 * Variables
+	 */
+	private var playButton_:FlxButton;
+	private var creditButton_:FlxButton;
+	
+	/**
 	 * Function that is called up when to state is created to set it up. 
 	 */
 	override public function create():Void
 	{
+		playButton_ = new FlxButton(380, 300, "Play", playGame);
+		creditButton_ = new FlxButton(380, 320, "Credits", viewCredits);
+		
+		add(playButton_);
+		add(creditButton_);
+		
 		super.create();
 	}
 	
@@ -35,5 +47,18 @@ class MenuState extends FlxState
 	override public function update():Void
 	{
 		super.update();
-	}	
+	}
+	
+	/**
+	 * Functions to change the game states
+	 */
+	private function playGame():Void
+	{
+		FlxG.switchState(new PlayState());
+	}
+	
+	private function viewCredits():Void
+	{
+		FlxG.switchState(new CreditState());
+	}
 }

@@ -11,12 +11,24 @@ import flixel.util.FlxMath;
  * A FlxState which can be used for the actual gameplay.
  */
 class PlayState extends FlxState
-{
+{	
+	private var player_:Player;
+	
+	private var current_trade_:Trade;
+	private var current_day_:Int;
+	private var trades_left_:Int;
+	private var traders_left:Int;
+	
 	/**
 	 * Function that is called up when to state is created to set it up. 
 	 */
 	override public function create():Void
-	{
+	{	
+		current_day_ = 1;
+		current_trade_ = 0; // don't start with a trade
+		trades_left_ = 10;
+		traders_left = 20;
+		
 		super.create();
 	}
 	

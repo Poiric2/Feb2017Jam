@@ -14,7 +14,7 @@
 	<!--------------------------------WINDOW SETTINGS------------------------------->
 	
 	<!--These window settings apply to all targets-->
-	<window width="640" height="480" fps="60" background="#000000" hardware="true" vsync="true" />
+	<window width="800" height="640" fps="60" background="#000000" hardware="true" vsync="true" />
 	
 	<!--Web-specific-->
 	<window if="web" orientation="portrait"  />
@@ -43,6 +43,7 @@
 	
 	<!--In case you want to use nape with flixel-->
 	<!--haxelib name="nape" /-->
+	<haxlib name="math" />
 	
 	<!--------------------------------HAXEDEFINES----------------------------------->
 	
