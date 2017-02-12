@@ -58,6 +58,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		Font.registerFont (__ASSET__assets_fonts_gooddog_otf);
+		
 		
 		
 		
@@ -71,6 +73,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#if (windows || mac || linux)
 		
 		var useManifest = false;
+		useManifest = true;
+		useManifest = true;
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -507,11 +511,13 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+@:keep class __ASSET__assets_fonts_gooddog_otf extends openfl.text.Font { public function new () { super (); __fontPath = "assets/fonts/GoodDog.otf"; fontName = "GoodDog"; }}
 
 
 #else
 
 
+class __ASSET__assets_fonts_gooddog_otf extends openfl.text.Font { public function new () { super (); __fontPath = "assets/fonts/GoodDog.otf"; fontName = "GoodDog";  }}
 class __ASSET__flixel_fonts_nokiafc22_ttf extends openfl.text.Font { public function new () { super (); __fontPath = "flixel/fonts/nokiafc22.ttf"; fontName = "Nokia Cellphone FC Small";  }}
 class __ASSET__flixel_fonts_monsterrat_ttf extends openfl.text.Font { public function new () { super (); __fontPath = "flixel/fonts/monsterrat.ttf"; fontName = "Monsterrat";  }}
 
@@ -578,6 +584,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_fonts_gooddog_otf);
+		
 		
 		
 		
@@ -593,6 +601,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		path.set ("assets/data/data-goes-here.txt", "assets/data/data-goes-here.txt");
 		type.set ("assets/data/data-goes-here.txt", AssetType.TEXT);
+		path.set ("assets/fonts/Fonthead Standard EULA.txt", "assets/fonts/Fonthead Standard EULA.txt");
+		type.set ("assets/fonts/Fonthead Standard EULA.txt", AssetType.TEXT);
+		path.set ("assets/fonts/GoodDog.otf", "assets/fonts/GoodDog.otf");
+		type.set ("assets/fonts/GoodDog.otf", AssetType.FONT);
 		path.set ("assets/images/images-go-here.txt", "assets/images/images-go-here.txt");
 		type.set ("assets/images/images-go-here.txt", AssetType.TEXT);
 		path.set ("assets/music/music-goes-here.txt", "assets/music/music-goes-here.txt");
@@ -619,6 +631,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		id = "assets/data/data-goes-here.txt";
 		path.set (id, id);
 		type.set (id, AssetType.TEXT);
+		id = "assets/fonts/Fonthead Standard EULA.txt";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "assets/fonts/GoodDog.otf";
+		path.set (id, id);
+		type.set (id, AssetType.FONT);
 		id = "assets/images/images-go-here.txt";
 		path.set (id, id);
 		type.set (id, AssetType.TEXT);
@@ -670,6 +688,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		var useManifest = false;
 		useManifest = true;
+		useManifest = true;
+		
+		className.set ("assets/fonts/GoodDog.otf", __ASSET__assets_fonts_gooddog_otf);
+		type.set ("assets/fonts/GoodDog.otf", AssetType.FONT);
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -1413,6 +1435,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
+
 @:keep @:bind #if display private #end class __ASSET__flixel_sounds_beep_ogg extends null { }
 @:keep @:bind #if display private #end class __ASSET__flixel_sounds_flixel_ogg extends null { }
 @:keep @:bind #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends null { }
@@ -1424,6 +1448,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 #elseif html5
 
 
+
+@:keep #if display private #end class __ASSET__assets_fonts_gooddog_otf extends lime.text.Font { public function new () { super (); name = "GoodDog"; } } 
 
 
 
@@ -1437,6 +1463,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 #else
 
+@:keep #if display private #end class __ASSET__assets_fonts_gooddog_otf extends lime.text.Font { public function new () { __fontPath = #if ios "assets/" + #end "assets/fonts/GoodDog.otf"; name = "GoodDog"; super (); }}
 
 
 #if (windows || mac || linux || cpp)
@@ -1455,6 +1482,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 #end
 
 #if (openfl && !flash)
+@:keep #if display private #end class __ASSET__OPENFL__assets_fonts_gooddog_otf extends openfl.text.Font { public function new () { __fontPath = #if ios "assets/" + #end "assets/fonts/GoodDog.otf"; name = "GoodDog"; super (); }}
 @:keep #if display private #end class __ASSET__OPENFL__flixel_fonts_nokiafc22_ttf extends openfl.text.Font { public function new () { var font = new __ASSET__flixel_fonts_nokiafc22_ttf (); src = font.src; name = font.name; super (); }}
 @:keep #if display private #end class __ASSET__OPENFL__flixel_fonts_monsterrat_ttf extends openfl.text.Font { public function new () { var font = new __ASSET__flixel_fonts_monsterrat_ttf (); src = font.src; name = font.name; super (); }}
 
