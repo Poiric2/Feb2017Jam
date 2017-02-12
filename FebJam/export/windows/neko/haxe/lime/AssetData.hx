@@ -24,14 +24,18 @@ class AssetData {
 			type.set ("assets/music/music-goes-here.txt", Reflect.field (AssetType, "text".toUpperCase ()));
 			path.set ("assets/sounds/sounds-go-here.txt", "assets/sounds/sounds-go-here.txt");
 			type.set ("assets/sounds/sounds-go-here.txt", Reflect.field (AssetType, "text".toUpperCase ()));
-			path.set ("assets/sounds/beep.ogg", "assets/sounds/beep.ogg");
-			type.set ("assets/sounds/beep.ogg", Reflect.field (AssetType, "sound".toUpperCase ()));
-			path.set ("assets/sounds/flixel.ogg", "assets/sounds/flixel.ogg");
-			type.set ("assets/sounds/flixel.ogg", Reflect.field (AssetType, "sound".toUpperCase ()));
-			path.set ("assets/fonts/nokiafc22.ttf", "assets/fonts/nokiafc22.ttf");
-			type.set ("assets/fonts/nokiafc22.ttf", Reflect.field (AssetType, "font".toUpperCase ()));
-			path.set ("assets/fonts/arial.ttf", "assets/fonts/arial.ttf");
-			type.set ("assets/fonts/arial.ttf", Reflect.field (AssetType, "font".toUpperCase ()));
+			path.set ("flixel/sounds/beep.ogg", "flixel/sounds/beep.ogg");
+			type.set ("flixel/sounds/beep.ogg", Reflect.field (AssetType, "sound".toUpperCase ()));
+			path.set ("flixel/sounds/flixel.ogg", "flixel/sounds/flixel.ogg");
+			type.set ("flixel/sounds/flixel.ogg", Reflect.field (AssetType, "sound".toUpperCase ()));
+			path.set ("flixel/fonts/nokiafc22.ttf", "flixel/fonts/nokiafc22.ttf");
+			type.set ("flixel/fonts/nokiafc22.ttf", Reflect.field (AssetType, "font".toUpperCase ()));
+			path.set ("flixel/fonts/monsterrat.ttf", "flixel/fonts/monsterrat.ttf");
+			type.set ("flixel/fonts/monsterrat.ttf", Reflect.field (AssetType, "font".toUpperCase ()));
+			path.set ("flixel/images/ui/button.png", "flixel/images/ui/button.png");
+			type.set ("flixel/images/ui/button.png", Reflect.field (AssetType, "image".toUpperCase ()));
+			path.set ("flixel/images/logo/default.png", "flixel/images/logo/default.png");
+			type.set ("flixel/images/logo/default.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			
 			
 			initialized = true;
