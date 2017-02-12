@@ -17,5 +17,10 @@ class Player extends TraderObject
 		fruit_remaining_[0] = 100;
 		money_ = 0;
 	}
+	
+	public function addFunds(newFunds:Int):Void
+	{
+	money_ += newFunds;
+	}
 
 }

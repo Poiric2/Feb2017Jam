@@ -18,6 +18,8 @@ class PlayState extends FlxState
 	private var current_day_:Int;
 	private var trades_left_:Int;
 	private var traders_left:Int;
+	
+	private var overlay:OverlaySprite;
 
 	/**
 	 * Function that is called up when to state is created to set it up.

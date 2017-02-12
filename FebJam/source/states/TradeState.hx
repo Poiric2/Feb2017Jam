@@ -31,6 +31,12 @@ class TradeState extends FlxState
 
 	private var _accept:FlxButton;
 	private var _decline:FlxButton;
+	
+	private var _overlay:OverlaySprite;
+	private var _overlay_button:FlxButton;
+	private var _overlay_header:FlxText;
+	private var _overlay_text:FlxText;
+	private var _next_text:FlxText;
 
 
   override public function create():Void
@@ -81,8 +87,28 @@ class TradeState extends FlxState
 		_accept.loadGraphic(AssetPaths.accept__png,64,32);
 		_decline.loadGraphic(AssetPaths.reject__png,64,32);
 
-		add(_accept);
-		add(_decline);
+		//add(_accept);
+		//add(_decline);
+		
+		// initial overlay stuff
+		_overlay = new OverlaySprite(0, 0);
+		add(_overlay);
+		
+		_overlay_header = new FlxText(140, 144, 520, "The market is opening!");
+		_overlay_header.setFormat("assets/fonts/GoodDog.otf", 64, 0xFF573A30, CENTER);
+		add(_overlay_header);
+		
+		_overlay_text = new FlxText(200, 224, 400, "Trade your Kiwis for other kinds of fruit  to make the most money.");
+		_overlay_text.setFormat("assets/fonts/GoodDog.otf", 45, 0xFF573A30, CENTER);
+		add(_overlay_text);
+		
+		_overlay_button = new FlxButton(222, 420, "", nextOverlay);
+		_overlay_button.loadGraphic(AssetPaths.splashButton__png);
+		add(_overlay_button);
+		
+		_next_text = new FlxText(200, 445, 400, "Start");
+		_next_text.setFormat("assets/fonts/GoodDog.otf", 45, 0xFF573A30, CENTER);
+		add(_next_text);
 
 		super.create();
   }
@@ -215,7 +241,7 @@ class TradeState extends FlxState
 			initTrader();
 			update(0);
 		}
-		else FlxG.switchState(new EndDayState());
+		else endDay();
 	}
 
 	private function destroyTrader():Void
@@ -229,5 +255,59 @@ class TradeState extends FlxState
 		// _trader_fruits = new Array<FruitButton>();
 		renderTraderObject(16,_traders[_current].fruit_remaining_,_trader_fruits,0);
 		createScroller(50,192,0,_traders[_current]);
+	}
+	
+	private function endDay():Void
+	{
+		_player.addFunds(5);
+		_overlay = new OverlaySprite();
+		add(_overlay);
+		
+		_accept.destroy();
+		_decline.destroy();
+		
+		if (Reg.level == 4) {
+			_overlay_header = new FlxText(140, 144, 520, "The market is closed!");
+			_overlay_text = new FlxText(200, 224, 400, "Wow, you made a lot in only 5 days. See if you can do even better next time!");
+			_next_text = new FlxText(200, 445, 400, "End Game");
+		} else {
+			_overlay_header = new FlxText(140, 144, 520, "The market is closing!");
+			_overlay_text = new FlxText(200, 224, 400, "You head home to sell off your extra stock. Tomorrow is a new day.");
+			_next_text = new FlxText(200, 445, 400, "Next Day");
+		}
+		
+		_overlay_header.setFormat("assets/fonts/GoodDog.otf", 64, 0xFF573A30, CENTER);
+		add(_overlay_header);
+		
+		_overlay_text.setFormat("assets/fonts/GoodDog.otf", 45, 0xFF573A30, CENTER);
+		add(_overlay_text);
+		
+		_overlay_button = new FlxButton(222, 420, "", nextDay);
+		_overlay_button.loadGraphic(AssetPaths.splashButton__png);
+		add(_overlay_button);
+		
+		_next_text.setFormat("assets/fonts/GoodDog.otf", 45, 0xFF573A30, CENTER);
+		add(_next_text);
+	}
+	
+	private function nextOverlay():Void
+	{
+		_overlay.destroy();
+		_overlay_header.destroy();
+		_overlay_text.destroy();
+		_overlay_button.destroy();
+		_next_text.destroy();
+		
+		add(_accept);
+		add(_decline);
+	}
+	
+	private function nextDay():Void
+	{
+		if (Reg.level == 4) {
+			Sys.exit(0);
+		}
+		++Reg.level;
+		FlxG.switchState(new TradeState());
 	}
 }
