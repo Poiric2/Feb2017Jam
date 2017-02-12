@@ -20,6 +20,7 @@ class Player extends TraderObject
 	public function addFunds(newFunds:Int):Void
 	{
 	money_ += newFunds;
+	Sys.println(money_);
 	}
 
 	public function trade(item:Int,howMany:Int):Void

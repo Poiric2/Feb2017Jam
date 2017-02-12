@@ -320,10 +320,27 @@ class TradeState extends FlxState
 		{
 			for (j in 0..._trade_fruits[i].length)
 			{
-				 if (i == 0 && _trade_fruits[i][j].length > 0) _player.trade(j,_trade_fruits[i][j].length);
+				 if (i == 0 && _trade_fruits[i][j].length > 0) _player.addFunds(TraderObject.prices_[j]*_trade_fruits[i][j].length) /*_player.trade(j,_trade_fruits[i][j].length);*/
 				 else if (_trade_fruits[i][j].length > 0)  _player.trade(j,-_trade_fruits[i][j].length);
 			}
 		}
+		destroyScroller(1);
+		createScroller(706,192,1,_player);
+
+		var item:FruitButton;
+
+		// for (i in 0..._trader)
+		// Sys.println(_fruits[index].length);
+		do {
+			item = _fruits[1].pop();
+			// Sys.println(item);
+			// Sys.println(_fruits[1].length);
+			remove(item);
+			if (item != null) { remove(item); item.destroy; }
+
+		} while( _fruits[1].length > 0 );
+
+		renderTraderObject(752,_player.fruit_remaining_,1);
 		next();
 	}
 	private function decline():Void
