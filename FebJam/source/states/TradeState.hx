@@ -268,7 +268,7 @@ class TradeState extends FlxState
 		
 		if (Reg.level == 4) {
 			_overlay_header = new FlxText(140, 144, 520, "The market is closed!");
-			_overlay_text = new FlxText(200, 224, 400, "Wow, you made a lot in only 5 days. See if you can do even better next time!");
+			_overlay_text = new FlxText(200, 224, 400, "Wow, you made " + Reg.score + " in only 5 days. See if you can do even better next time!");
 			_next_text = new FlxText(200, 445, 400, "End Game");
 		} else {
 			_overlay_header = new FlxText(140, 144, 520, "The market is closing!");
@@ -305,9 +305,10 @@ class TradeState extends FlxState
 	private function nextDay():Void
 	{
 		if (Reg.level == 4) {
-			Sys.exit(0);
+			FlxG.switchState(new StartState());
+		} else {
+			++Reg.level;
+			FlxG.switchState(new TradeState());
 		}
-		++Reg.level;
-		FlxG.switchState(new TradeState());
 	}
 }
