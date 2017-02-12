@@ -45,14 +45,16 @@ class TradeState extends FlxState
 	private var _next_text:FlxText;
 
 	private var _want:Array<FruitSprite>;
-
+	private var _want_texts:Array<FlxText>;
 	private var _want_text:FlxText;
 
   override public function create():Void
 	{
 
-		_want_text = new FlxText(640, 470,96,"Want");
+		_want_text = new FlxText(640, 470,96,"Profit");
 		_want_text.setFormat("assets/fonts/GoodDog.otf", 28, 0xFFFFFFFF, CENTER);
+
+		_want_texts = new Array<FlxText>();
 
 		_want = new Array<FruitSprite>();
 
@@ -87,7 +89,7 @@ class TradeState extends FlxState
 
 
 		for (i in 0...20) {
-			_traders[i] = new Trader(Reg.level+1);
+			_traders[i] = new Trader(Std.int((Reg.level + if (Reg.level == 0 || Reg.level == 1) 2 else 1)/2));
 		}
 
 		// renderTraderObject(16,_traders[_current].fruit_names_,_trader_fruits);
@@ -181,34 +183,95 @@ class TradeState extends FlxState
 
 		}
 
-		var x:Int = 670;
+		var x:Int = 640;
 		var y:Int = 500;
 
-		for (i in 0..._traders[_current].want.length)
+		for (i in 0..._traders[_current].fruit_remaining_.length)
 		{
 			var item:FruitSprite = null;
-			switch _traders[_current].want[i]
+			var text:FlxText = null;
+			if (_traders[_current].fruit_remaining_[i] > 0)
 			{
-				case 0:
-					item = new AppleSprite(x,y);
-				case 1:
-					item = new BananaSprite(x,y);
-				case 2:
-					item = new CoconutSprite(x,y);
-				case 3:
-					item = new GrapeSprite(x,y);
-				case 4:
-					item = new KiwiSprite(x,y);
-				case 5:
-					item = new PearSprite(x,y);
-				case 6:
-					item = new PlumSprite(x,y);
-				case 7:
-					item = new WatermelonSprite(x,y);
+				switch i
+				{
+					case 0:
+						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						item = new AppleSprite(x,y);
+					case 1:
+						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						item = new BananaSprite(x,y);
+					case 2:
+						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						item = new CoconutSprite(x,y);
+					case 3:
+						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						item = new GrapeSprite(x,y);
+					case 4:
+						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						item = new KiwiSprite(x,y);
+					case 5:
+						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						item = new PearSprite(x,y);
+					case 6:
+						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						item = new PlumSprite(x,y);
+					case 7:
+						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						item = new WatermelonSprite(x,y);
+				}
+
+				text.setFormat("assets/fonts/GoodDog.otf", 28, 0xFFFFFFFF, CENTER);
+
+				_want_texts.push(text);
+				_want.push(item);
+				add(item);
+				add(text);
+				y += 32;
 			}
-			_want.push(item);
-			add(item);
-			y += 32;
+		}
+
+		for (i in 0..._player.fruit_remaining_.length)
+		{
+			var item:FruitSprite = null;
+			var text:FlxText = null;
+			if (_player.fruit_remaining_[i] > 0)
+			{
+				switch i
+				{
+					case 0:
+						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						item = new AppleSprite(x,y);
+					case 1:
+						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						item = new BananaSprite(x,y);
+					case 2:
+						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						item = new CoconutSprite(x,y);
+					case 3:
+						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						item = new GrapeSprite(x,y);
+					case 4:
+						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						item = new KiwiSprite(x,y);
+					case 5:
+						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						item = new PearSprite(x,y);
+					case 6:
+						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						item = new PlumSprite(x,y);
+					case 7:
+						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						item = new WatermelonSprite(x,y);
+				}
+
+				text.setFormat("assets/fonts/GoodDog.otf", 28, 0xFFFFFFFF, CENTER);
+
+				_want_texts.push(text);
+				_want.push(item);
+				add(item);
+				add(text);
+				y += 32;
+			}
 		}
 	}
 
@@ -230,8 +293,11 @@ class TradeState extends FlxState
 		for (i in 0..._want.length)
 		{
 			var item:FruitSprite = _want.pop();
+			var text:FlxText = _want_texts.pop();
 			remove(item);
+			remove(text);
 			item.destroy();
+			text.destroy();
 		}
 	}
 
