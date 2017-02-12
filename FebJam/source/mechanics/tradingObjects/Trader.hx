@@ -18,16 +18,16 @@ class Trader extends TraderObject
 
 		for (i in 0...num) {
 			// Sys.println("Doing: " + num);
-			var rand_fruit:String;
+			var rand_fruit:Int;
 
 			do
 			{
-				rand_fruit = random_.getObject(TraderObject.options_);
-			} while(fruit_names_.indexOf(rand_fruit) != -1);
+				rand_fruit = random_.int(0,TraderObject.options_.length);
+			} while(fruit_remaining_[rand_fruit] != 0);
 
 			// Sys.println("Chose: " + rand_fruit);
-			fruit_names_.push(rand_fruit);
-			fruit_remaining_.push(random_.int(0,cast (100/num+.5))+5);
+			// fruit_names_.push(rand_fruit);
+			fruit_remaining_[rand_fruit] = cast (100/num);
 		}
 	}
 

@@ -13,7 +13,7 @@ class Player extends TraderObject
 	public function new()
 	{
 		super();
-		fruit_names_[0]     = "Pineapple";
+		// fruit_names_[0]     = "Apple";
 		fruit_remaining_[0] = 100;
 		money_ = 0;
 	}

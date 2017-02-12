@@ -6,7 +6,9 @@ import flixel.FlxState;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.math.FlxMath;
+import flixel.system.FlxSound;
 
+import sprites.ui.*;
 /**
  * A FlxState which can be used for the game's menu.
  */
@@ -17,18 +19,49 @@ class StartState extends FlxState
 	 */
 	private var play_button_:FlxButton;
 	private var credit_button_:FlxButton;
+	private var quit_button_:FlxButton;
+	private var play:FlxText;
+	private var credit:FlxText;
+	private var quit:FlxText;
+
+	// private var sound:FlxSoundAsset;
+	private var back_ground:TitleSprite;
 
 	/**
 	 * Function that is called up when to state is created to set it up.
 	 */
 	override public function create():Void
 	{
-		play_button_ = new FlxButton(380, 300, "Play", playGame);
-		credit_button_ = new FlxButton(380, 320, "Credits", viewCredits);
+
+		// sound = FlxG.sound.load(AssetPaths.introtheme__ogg);
+		FlxG.sound.playMusic(AssetPaths.introtheme__ogg, 1, true);
+
+		back_ground = new TitleSprite(0,0);
+		add(back_ground);
+
+		play_button_ = new FlxButton(64, 440, "", playGame);
+		play = new FlxText(175,465,100,"Play");
+		play.setFormat("assets/fonts/GoodDog.otf", 45, 0xFFFFFFFF, CENTER);
+
+		credit_button_ = new FlxButton(380, 440, "", viewCredits);
+		credit = new FlxText(491,465,120,"Credits");
+		credit.setFormat("assets/fonts/GoodDog.otf", 45, 0xFFFFFFFF, CENTER);
+
+		quit_button_ = new FlxButton(222, 530, "", stop);
+		quit = new FlxText(333,555,120,"Quit");
+		quit.setFormat("assets/fonts/GoodDog.otf", 45, 0xFFFFFFFF, CENTER);
+
+		play_button_.loadGraphic(AssetPaths.splashButton__png);
+		credit_button_.loadGraphic(AssetPaths.splashButton__png);
+		quit_button_.loadGraphic(AssetPaths.splashButton__png);
 
 		add(play_button_);
 		add(credit_button_);
+		add(quit_button_);
 
+		add(play);
+		add(credit);
+		add(quit);
 		super.create();
 	}
 
@@ -54,11 +87,18 @@ class StartState extends FlxState
 	 */
 	private function playGame():Void
 	{
+		// FlxG.sound.music
+		FlxG.sound.music.destroy();
 		FlxG.switchState(new TradeState());
 	}
 
 	private function viewCredits():Void
 	{
 		FlxG.switchState(new CreditState());
+	}
+
+	private function stop():Void
+	{
+		Sys.exit(0);
 	}
 }
