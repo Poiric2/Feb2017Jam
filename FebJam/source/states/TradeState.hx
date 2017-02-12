@@ -11,6 +11,8 @@ import flixel.FlxState;
 import flixel.FlxG;
 import flixel.ui.FlxButton;
 
+import flixel.math.FlxRandom;
+
 class TradeState extends FlxState
 {
 	private var _trader_sprite:Array<TraderSprite>;
@@ -30,6 +32,7 @@ class TradeState extends FlxState
 	private var _scroll_sprite:ScrollSprite;
 
 	private var _current:Int = 0;
+	private var _current_trader:Int = 0;
 	private var _selected:Array<Int> = [-1, -1];
 
 	private var _accept:FlxButton;
@@ -41,8 +44,17 @@ class TradeState extends FlxState
 	private var _overlay_text:FlxText;
 	private var _next_text:FlxText;
 
+	private var _want:Array<FruitSprite>;
+
+	private var _want_text:FlxText;
+
   override public function create():Void
 	{
+
+		_want_text = new FlxText(640, 470,96,"Want");
+		_want_text.setFormat("assets/fonts/GoodDog.otf", 28, 0xFFFFFFFF, CENTER);
+
+		_want = new Array<FruitSprite>();
 
 		FlxG.sound.play(AssetPaths.home__ogg, 1, true);
 
@@ -52,10 +64,9 @@ class TradeState extends FlxState
 		_trader_sprite = new Array<TraderSprite>();
 		for (i in 0...5)
 		{
-			_trader_sprite[i] = new TraderSprite(64,480,i);
+			_trader_sprite[i] = new TraderSprite(92,493,i);
 		}
 		_trade_sprite = new TradeSprite(64,464);
-		add(_trade_sprite);
 
 		_trade_fruits = new Array<Array<Array<FruitSprite>>>();
 
@@ -76,7 +87,7 @@ class TradeState extends FlxState
 
 
 		for (i in 0...20) {
-			_traders[i] = new Trader(7);
+			_traders[i] = new Trader(Reg.level+1);
 		}
 
 		// renderTraderObject(16,_traders[_current].fruit_names_,_trader_fruits);
@@ -87,10 +98,8 @@ class TradeState extends FlxState
 		_counters_buttons[1]    = new Array<FlxButton>();
 
 		_counters = new Array<CounterSprite>();
-		initTrader();
-
 		_scroll_sprite = new ScrollSprite(608, 470);
-		add(_scroll_sprite);
+		initTrader();
 
 		// createScroller(50,192,0,_traders[_current]);
 		createScroller(706,192,1,_player);
@@ -171,6 +180,36 @@ class TradeState extends FlxState
 			}
 
 		}
+
+		var x:Int = 670;
+		var y:Int = 500;
+
+		for (i in 0..._traders[_current].want.length)
+		{
+			var item:FruitSprite = null;
+			switch _traders[_current].want[i]
+			{
+				case 0:
+					item = new AppleSprite(x,y);
+				case 1:
+					item = new BananaSprite(x,y);
+				case 2:
+					item = new CoconutSprite(x,y);
+				case 3:
+					item = new GrapeSprite(x,y);
+				case 4:
+					item = new KiwiSprite(x,y);
+				case 5:
+					item = new PearSprite(x,y);
+				case 6:
+					item = new PlumSprite(x,y);
+				case 7:
+					item = new WatermelonSprite(x,y);
+			}
+			_want.push(item);
+			add(item);
+			y += 32;
+		}
 	}
 
 	private function destroyTraderObject(index:Int):Void
@@ -187,6 +226,13 @@ class TradeState extends FlxState
 			if (item != null) { remove(item); item.destroy; }
 
 		} while( _fruits[index].length > 0 );
+
+		for (i in 0..._want.length)
+		{
+			var item:FruitSprite = _want.pop();
+			remove(item);
+			item.destroy();
+		}
 	}
 
 	private function createScroller(x:Int,y:Int,index:Int,trader:TraderObject):Void
@@ -231,6 +277,8 @@ class TradeState extends FlxState
 	private function destroyScroller(index:Int)
 	{
 		remove(_counters[index].text);
+		// _counters[index].setValue(0);
+		_counters[index].text.destroy();
 		remove(_counters[index]);
 		_counters[index].destroy();
 
@@ -248,10 +296,20 @@ class TradeState extends FlxState
 
 	private function accept():Void
 	{
+		_traders[_current].accept();
+		for (i in 0...2)
+		{
+			for (j in 0..._trade_fruits[i].length)
+			{
+				 if (i == 0 && _trade_fruits[i][j].length > 0) _player.trade(j,_trade_fruits[i][j].length);
+				 else if (_trade_fruits[i][j].length > 0)  _player.trade(j,-_trade_fruits[i][j].length);
+			}
+		}
 		next();
 	}
 	private function decline():Void
 	{
+		_counters[1].setValue(0);
 		next();
 	}
 
@@ -282,6 +340,15 @@ class TradeState extends FlxState
 				}
 			}
 		}
+
+		remove(_trader_sprite[_current_trader]);
+		remove(_trade_sprite);
+		remove(_scroll_sprite);
+		remove(_want_text);
+
+		_selected[0] = -1;
+		_selected[1] = -1;
+
 		destroyTraderObject(0);
 		destroyScroller(0);
 	}
@@ -289,6 +356,12 @@ class TradeState extends FlxState
 	private function initTrader():Void
 	{
 		// _trader_fruits = new Array<FruitButton>();
+		var random_:FlxRandom = new FlxRandom();
+		_current_trader = random_.int(0,4);
+		add(_trader_sprite[_current_trader]);
+		add(_trade_sprite);
+		add(_scroll_sprite);
+		add(_want_text);
 		renderTraderObject(16,_traders[_current].fruit_remaining_,0);
 		createScroller(50,192,0,_traders[_current]);
 	}
