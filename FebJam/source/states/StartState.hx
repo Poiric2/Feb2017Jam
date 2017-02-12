@@ -41,15 +41,15 @@ class StartState extends FlxState
 
 		play_button_ = new FlxButton(64, 440, "", playGame);
 		play = new FlxText(175,465,100,"Play");
-		play.setFormat("assets/fonts/GoodDog.otf", 45, 0xFFFFFFFF, CENTER);
+		play.setFormat("assets/fonts/GoodDog.otf", 45, 0xFF573A30, CENTER);
 
 		credit_button_ = new FlxButton(380, 440, "", viewCredits);
 		credit = new FlxText(491,465,120,"Credits");
-		credit.setFormat("assets/fonts/GoodDog.otf", 45, 0xFFFFFFFF, CENTER);
+		credit.setFormat("assets/fonts/GoodDog.otf", 45, 0xFF573A30, CENTER);
 
 		quit_button_ = new FlxButton(222, 530, "", stop);
 		quit = new FlxText(333,555,120,"Quit");
-		quit.setFormat("assets/fonts/GoodDog.otf", 45, 0xFFFFFFFF, CENTER);
+		quit.setFormat("assets/fonts/GoodDog.otf", 45, 0xFF573A30, CENTER);
 
 		play_button_.loadGraphic(AssetPaths.splashButton__png);
 		credit_button_.loadGraphic(AssetPaths.splashButton__png);
