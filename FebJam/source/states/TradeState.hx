@@ -340,7 +340,18 @@ class TradeState extends FlxState
 
 		} while( _fruits[1].length > 0 );
 
-		renderTraderObject(752,_player.fruit_remaining_,1);
+		renderTraderObject(752, _player.fruit_remaining_, 1);
+		
+		_coin_count.destroy();
+		_coin_count = new FlxText(200, -5, 200, "" + _player.getFunds());
+		_coin_count.setFormat("assets/fonts/GoodDog.otf", 45, 0xFF573A30, RIGHT);
+		add(_coin_count);
+
+		_kiwi_count.destroy();
+		_kiwi_count = new FlxText(400, -5, 200, "" + _player.fruit_remaining_[4]);
+		_kiwi_count.setFormat("assets/fonts/GoodDog.otf", 45, 0xFF573A30, RIGHT);
+		add(_kiwi_count);
+		
 		next();
 	}
 	private function decline():Void
