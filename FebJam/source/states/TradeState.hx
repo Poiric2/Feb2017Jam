@@ -120,7 +120,7 @@ class TradeState extends FlxState
 		_top_kiwi = new FlxSprite(600,5);
 		_top_kiwi.loadGraphic(AssetPaths.kiwi__png, true, 32, 32);
 		add(_top_kiwi);
-		_kiwi_count = new FlxText(400, -5, 200, "100");
+		_kiwi_count = new FlxText(400, -5, 200, "" + _player.fruit_remaining_[4]);
 		_kiwi_count.setFormat("assets/fonts/GoodDog.otf", 45, 0xFF573A30, RIGHT);
 		add(_kiwi_count);
 
@@ -393,6 +393,9 @@ class TradeState extends FlxState
 		
 		_accept.destroy();
 		_decline.destroy();
+		
+		Reg.score += _player.getFunds();
+		_player.resetFunds();
 		
 		if (Reg.level == 4) {
 			_overlay_header = new FlxText(140, 144, 520, "The market is closed!");

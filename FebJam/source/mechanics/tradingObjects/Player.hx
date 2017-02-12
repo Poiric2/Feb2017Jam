@@ -13,13 +13,7 @@ class Player extends TraderObject
 	public function new()
 	{
 		super();
-		// fruit_names_[0]     = "Kiwi";
-		fruit_remaining_[0] = 100;
-		for (i in 0...7)
-			fruit_remaining_[i] = 100;
-=======
 		fruit_remaining_[4] = 100;
->>>>>>> 5e795f4541f9d8bc62bc5593033c402b6eba0d64
 		money_ = 0;
 	}
 	
@@ -32,5 +26,14 @@ class Player extends TraderObject
 	{
 		fruit_remaining_[item] += howMany;
 	}
-
+	
+	public function getFunds():Int
+	{
+		return money_;
+	}
+	
+	public function resetFunds():Void
+	{
+		money_ = 0;
+	}
 }
