@@ -93,7 +93,7 @@ class TradeState extends FlxState
 
 
 		for (i in 0...20) {
-			_traders[i] = new Trader(Reg.level+1);
+			_traders[i] = new Trader(Reg.level + 1);
 		}
 
 		// renderTraderObject(16,_traders[_current].fruit_names_,_trader_fruits);
