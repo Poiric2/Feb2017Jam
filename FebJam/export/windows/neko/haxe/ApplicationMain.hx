@@ -431,28 +431,12 @@ class ApplicationMain {
 		var types = [];
 		
 		
-		urls.push ("flixel/sounds/beep.ogg");
-		types.push (lime.Assets.AssetType.SOUND);
-		
-		
-		urls.push ("flixel/sounds/flixel.ogg");
-		types.push (lime.Assets.AssetType.SOUND);
-		
-		
 		urls.push ("Nokia Cellphone FC Small");
 		types.push (lime.Assets.AssetType.FONT);
 		
 		
-		urls.push ("Monsterrat");
+		urls.push ("Arial");
 		types.push (lime.Assets.AssetType.FONT);
-		
-		
-		urls.push ("flixel/images/ui/button.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("flixel/images/logo/default.png");
-		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
 		
@@ -515,7 +499,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "49",
+			build: "22",
 			company: "HaxeFlixel",
 			file: "FebJam",
 			fps: 60,
