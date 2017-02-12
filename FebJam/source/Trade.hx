@@ -47,4 +47,35 @@ class Trade extends FlxBasic
 	{
 		return trader_name_;
 	}
+	
+	/**
+	 * Changing the terms of the trade
+	 */
+	public function addPlayerFruit(quantity:Int);
+	{
+		player_fruit_offered_ += quantity;
+	}
+	
+	public function subtractPlayerFruit(quantity:Int)
+	{
+		if ( (player_fruits_offered_ - quantity) <= 0) {
+			player_fruits_offered_ = 0;
+		} else {
+			player_fruits_offered_ -= quantity;
+		}
+	}
+	
+	public function addTraderFruit(fruitID:Int, quantity:Int)
+	{
+		trader_fruits_offered_[fruitID] += quantity;
+	}
+	
+	public function subtractTraderFruit(fruitID:Int, quantity:Int)
+	{
+		if ( (trader_fruits_offered_[fruitID] - quantity) <= 0) {
+			trader_fruits_offered_[fruitID] = 0;
+		} else {
+			trader_fruits_offered_[fruitID] -= quantity;
+		}
+	}
 }
