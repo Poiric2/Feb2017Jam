@@ -515,7 +515,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "44",
+			build: "49",
 			company: "HaxeFlixel",
 			file: "FebJam",
 			fps: 60,

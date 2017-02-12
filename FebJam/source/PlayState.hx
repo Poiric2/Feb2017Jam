@@ -24,6 +24,7 @@ class PlayState extends FlxState
 	 */
 	override public function create():Void
 	{	
+		current_trade_ = new Trade();
 		current_day_ = 1;
 		trades_left_ = 10;
 		traders_left = 20;
@@ -46,6 +47,28 @@ class PlayState extends FlxState
 	override public function update(elapsed:Float):Void
 	{
 		super.update(elapsed);
+	}
+	
+	private function makeTrade():Void
+	{
+		player_.trade(current_trade_.profit(), current_trade_.getPlayerFruitsOffered());
+		--traders_left;
+		--trades_left_;
+		current_trade_.destroy();
+		if (trades_left_ != 0 && traders_left != 0)
+		{
+			current_trade_ = new Trade();
+		}
+	}
+	
+	private function rejectTrade():Void
+	{
+		--traders_left;
+		--trades_left_;
+		current_trade_.destroy();
+		if (trades_left_ != 0 && traders_left != 0) {
+			current_trade_ = new Trade();
+		}
 	}
 	
 }

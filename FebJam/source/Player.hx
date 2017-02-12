@@ -19,7 +19,7 @@ class Player extends FlxBasic
 		
 	}
 	
-	public function trade(money_recieved:Int, fruit_traded:Int)
+	public function trade(money_recieved:Int, fruit_traded:Int):Void
 	{
 		money_ += money_recieved;
 		fruit_remaining_ -= fruit_traded;
