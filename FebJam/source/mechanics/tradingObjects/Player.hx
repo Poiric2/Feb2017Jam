@@ -13,11 +13,19 @@ class Player extends TraderObject
 	public function new()
 	{
 		super();
-		// fruit_names_[0]     = "Apple";
+		fruit_names_[0]     = "Kiwi";
 		fruit_remaining_[0] = 100;
+		for (i in 0...7)
+			fruit_remaining_[i] = 100;
 		money_ = 0;
 	}
 	
+	public function addFunds(newFunds:Int):Void
+	{
+	money_ += newFunds;
+	}
+
+
 	public function addFunds(newFunds:Int):Void
 	{
 	money_ += newFunds;
