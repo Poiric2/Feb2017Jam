@@ -1,5 +1,7 @@
 package states;
 
+import sprites.background.*;
+
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;

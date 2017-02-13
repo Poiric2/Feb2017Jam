@@ -1,44 +1,39 @@
 package mechanics.tradingObjects;
 
 import flixel.FlxBasic;
-import flixel.math.FlxRandom;
+// import flixel.Math;
 
-/**
- * ...
- * @author Claira
- */
 class Trader extends TraderObject
 {
-	private var money_:Int;
-	private static var random_:FlxRandom = new FlxRandom();
 
-	public var want(default,null):Array<Int>;
+	public var _want_(default,null):Array<Int>;
 
 	public function new(num:Int)
 	{
+		// Call super first because we need to use parent code
 		super();
+
+		// Trader has Infinite money
+		_money_ = cast (Math.POSITIVE_INFINITY);
 		var rand_fruit:Int;
-		 want = new Array<Int>();
+		_want_ = new Array<Int>();
 		for (i in 0...num) {
-			// Sys.println("Doing: " + num);
 
 			do
 			{
-				rand_fruit = random_.int(0,TraderObject.options_.length);
-			} while(fruit_remaining_[rand_fruit] != 0 || TraderObject.options_[rand_fruit] == "Kiwi");
+				rand_fruit = _random_.int(0,TraderObject._options_.length);
+			} while(_fruit_remaining_[rand_fruit] != 0 || TraderObject._options_[rand_fruit] == "Kiwi");
 
-			// Sys.println("Chose: " + rand_fruit);
-			// fruit_names_.push(rand_fruit);
-			fruit_remaining_[rand_fruit] = cast (100/num);
+			_fruit_remaining_[rand_fruit] = cast (100/num);
 		}
 
 		for (i in 0...3)
 		{
 			do {
-				rand_fruit = random_.int(0,TraderObject.options_.length-1);
-			} while(want.indexOf(rand_fruit) != -1);
+				rand_fruit = _random_.int(0,TraderObject._options_.length-1);
+			} while(_want_.indexOf(rand_fruit) != -1);
 
-			want.push(rand_fruit);
+			_want_.push(rand_fruit);
 		}
 	}
 

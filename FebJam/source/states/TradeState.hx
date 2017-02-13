@@ -1,11 +1,20 @@
 package states;
 
-import sprites.*;
-import flixel.FlxSprite;
-import sprites.ui.*;
-import sprites.fruit.*;
 import mechanics.*;
 import mechanics.tradingObjects.*;
+
+import sprites.*;
+import sprites.background.*;
+import sprites.fruit.*;
+import sprites.ui.*;
+import sprites.fruit.product.*;
+import sprites.ui.button.*;
+import sprites.ui.counter.*;
+import sprites.ui.gui.*;
+import sprites.ui.button.fruit.*;
+import sprites.ui.button.fruit.product.*;
+
+import flixel.FlxSprite;
 import flixel.text.FlxText;
 
 import flixel.FlxState;
@@ -38,15 +47,14 @@ class TradeState extends FlxState
 
 	private var _accept:FlxButton;
 	private var _decline:FlxButton;
-	
+
 	private var _overlay:OverlaySprite;
 	private var _overlay_button:FlxButton;
 	private var _overlay_header:FlxText;
 	private var _overlay_text:FlxText;
 	private var _next_text:FlxText;
-	
+
 	private var _top_coin:FlxSprite;
-	private var _coin_count:FlxText;
 	private var _top_kiwi:FlxSprite;
 	private var _kiwi_count:FlxText;
 
@@ -81,11 +89,12 @@ class TradeState extends FlxState
 		for (i in 0...2)
 		{
 			_trade_fruits[i] = new Array<Array<FruitSprite>>();
-			for (j in 0...TraderObject.options_.length)
+			for (j in 0...TraderObject._options_.length)
 				_trade_fruits[i][j] = new Array<FruitSprite>();
 		}
 
-		_player = new Player();
+		_player = new Player(200,-5);
+		add(_player._coin_count_);
 
 		_traders = new Array<Trader>();
 
@@ -95,15 +104,12 @@ class TradeState extends FlxState
 
 
 		for (i in 0...20) {
-<<<<<<< HEAD
 			_traders[i] = new Trader(Reg.level + 1);
-=======
 			_traders[i] = new Trader(Std.int((Reg.level + if (Reg.level == 0 || Reg.level == 1) 2 else 1)/2));
->>>>>>> 30581599f65740ba7c5f66af90409a689233e151
 		}
 
 		// renderTraderObject(16,_traders[_current].fruit_names_,_trader_fruits);
-		renderTraderObject(752,_player.fruit_remaining_,1);
+		renderTraderObject(752,_player._fruit_remaining_,1);
 
 		_counters_buttons       = new Array<Array<FlxButton>>();
 		_counters_buttons[0]    = new Array<FlxButton>();
@@ -115,18 +121,14 @@ class TradeState extends FlxState
 
 		// createScroller(50,192,0,_traders[_current]);
 		createScroller(706, 192, 1, _player);
-		
+
 		_top_coin = new FlxSprite(400, 10, AssetPaths.smallCoin__png);
 		add(_top_coin);
-		_coin_count = new FlxText(200, -5, 200, "0");
-		_coin_count.setFormat("assets/fonts/GoodDog.otf", 45, 0xFF573A30, RIGHT);
-		add(_coin_count);
-		
-		
+
 		_top_kiwi = new FlxSprite(600,5);
 		_top_kiwi.loadGraphic(AssetPaths.kiwi__png, true, 32, 32);
 		add(_top_kiwi);
-		_kiwi_count = new FlxText(400, -5, 200, "" + _player.fruit_remaining_[4]);
+		_kiwi_count = new FlxText(400, -5, 200, "" + _player._fruit_remaining_[4]);
 		_kiwi_count.setFormat("assets/fonts/GoodDog.otf", 45, 0xFF573A30, RIGHT);
 		add(_kiwi_count);
 
@@ -138,23 +140,23 @@ class TradeState extends FlxState
 
 		//add(_accept);
 		//add(_decline);
-		
+
 		// initial overlay stuff
 		_overlay = new OverlaySprite(0, 0);
 		add(_overlay);
-		
+
 		_overlay_header = new FlxText(140, 144, 520, "The market is opening!");
 		_overlay_header.setFormat("assets/fonts/GoodDog.otf", 64, 0xFF573A30, CENTER);
 		add(_overlay_header);
-		
+
 		_overlay_text = new FlxText(200, 224, 400, "Trade your Kiwis for other kinds of fruit to make the most money.");
 		_overlay_text.setFormat("assets/fonts/GoodDog.otf", 45, 0xFF573A30, CENTER);
 		add(_overlay_text);
-		
+
 		_overlay_button = new FlxButton(222, 420, "", nextOverlay);
 		_overlay_button.loadGraphic(AssetPaths.splashButton__png);
 		add(_overlay_button);
-		
+
 		_next_text = new FlxText(200, 445, 400, "Start");
 		_next_text.setFormat("assets/fonts/GoodDog.otf", 45, 0xFF573A30, CENTER);
 		add(_next_text);
@@ -209,37 +211,37 @@ class TradeState extends FlxState
 		var x:Int = 640;
 		var y:Int = 500;
 
-		for (i in 0..._traders[_current].fruit_remaining_.length)
+		for (i in 0..._traders[_current]._fruit_remaining_.length)
 		{
 			var item:FruitSprite = null;
 			var text:FlxText = null;
-			if (_traders[_current].fruit_remaining_[i] > 0)
+			if (_traders[_current]._fruit_remaining_[i] > 0)
 			{
 				switch i
 				{
 					case 0:
-						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
 						item = new AppleSprite(x,y);
 					case 1:
-						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
 						item = new BananaSprite(x,y);
 					case 2:
-						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
 						item = new CoconutSprite(x,y);
 					case 3:
-						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
 						item = new GrapeSprite(x,y);
 					case 4:
-						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
 						item = new KiwiSprite(x,y);
 					case 5:
-						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
 						item = new PearSprite(x,y);
 					case 6:
-						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
 						item = new PlumSprite(x,y);
 					case 7:
-						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
 						item = new WatermelonSprite(x,y);
 				}
 
@@ -253,37 +255,37 @@ class TradeState extends FlxState
 			}
 		}
 
-		for (i in 0..._player.fruit_remaining_.length)
+		for (i in 0..._player._fruit_remaining_.length)
 		{
 			var item:FruitSprite = null;
 			var text:FlxText = null;
-			if (_player.fruit_remaining_[i] > 0)
+			if (_player._fruit_remaining_[i] > 0)
 			{
 				switch i
 				{
 					case 0:
-						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
 						item = new AppleSprite(x,y);
 					case 1:
-						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
 						item = new BananaSprite(x,y);
 					case 2:
-						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
 						item = new CoconutSprite(x,y);
 					case 3:
-						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
 						item = new GrapeSprite(x,y);
 					case 4:
-						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
 						item = new KiwiSprite(x,y);
 					case 5:
-						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
 						item = new PearSprite(x,y);
 					case 6:
-						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
 						item = new PlumSprite(x,y);
 					case 7:
-						text = new FlxText(x+32, y,32,""+TraderObject.prices_[i]);
+						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
 						item = new WatermelonSprite(x,y);
 				}
 
@@ -340,7 +342,7 @@ class TradeState extends FlxState
 																												 if (chosen != -1 && newValue >= 0 && newValue <=10)
 																												 {
 																												 	 _counters[index].setValue(newValue);
-																													 createFruit(index,_selected[index],Lambda.filter(trader.fruit_remaining_, function(i) { return (i!=0); }).length);
+																													 createFruit(index,_selected[index],Lambda.filter(trader._fruit_remaining_, function(i) { return (i!=0); }).length);
 																												 }
 																											 });
 		_counters_buttons[index][1] = new FlxButton(x,y+96,"",function():Void
@@ -390,7 +392,7 @@ class TradeState extends FlxState
 		{
 			for (j in 0..._trade_fruits[i].length)
 			{
-				 if (i == 0 && _trade_fruits[i][j].length > 0) _player.addFunds(TraderObject.prices_[j]*_trade_fruits[i][j].length) /*_player.trade(j,_trade_fruits[i][j].length);*/
+				 if (i == 0 && _trade_fruits[i][j].length > 0) _player.addFunds(TraderObject._prices_[j]*_trade_fruits[i][j].length) /*_player.trade(j,_trade_fruits[i][j].length);*/
 				 else if (_trade_fruits[i][j].length > 0)  _player.trade(j,-_trade_fruits[i][j].length);
 			}
 		}
@@ -410,18 +412,13 @@ class TradeState extends FlxState
 
 		} while( _fruits[1].length > 0 );
 
-		renderTraderObject(752, _player.fruit_remaining_, 1);
-		
-		_coin_count.destroy();
-		_coin_count = new FlxText(200, -5, 200, "" + _player.getFunds());
-		_coin_count.setFormat("assets/fonts/GoodDog.otf", 45, 0xFF573A30, RIGHT);
-		add(_coin_count);
+		renderTraderObject(752, _player._fruit_remaining_, 1);
 
 		_kiwi_count.destroy();
-		_kiwi_count = new FlxText(400, -5, 200, "" + _player.fruit_remaining_[4]);
+		_kiwi_count = new FlxText(400, -5, 200, "" + _player._fruit_remaining_[4]);
 		_kiwi_count.setFormat("assets/fonts/GoodDog.otf", 45, 0xFF573A30, RIGHT);
 		add(_kiwi_count);
-		
+
 		next();
 	}
 	private function decline():Void
@@ -479,22 +476,22 @@ class TradeState extends FlxState
 		add(_trade_sprite);
 		add(_scroll_sprite);
 		add(_want_text);
-		renderTraderObject(16,_traders[_current].fruit_remaining_,0);
+		renderTraderObject(16,_traders[_current]._fruit_remaining_,0);
 		createScroller(50,192,0,_traders[_current]);
 	}
-	
+
 	private function endDay():Void
 	{
 		_player.addFunds(5);
 		_overlay = new OverlaySprite();
 		add(_overlay);
-		
+
 		_accept.destroy();
 		_decline.destroy();
-		
+
 		Reg.score += _player.getFunds();
 		_player.resetFunds();
-		
+
 		if (Reg.level == 4) {
 			_overlay_header = new FlxText(140, 144, 520, "The market is closed!");
 			_overlay_text = new FlxText(200, 224, 400, "Wow, you made " + Reg.score + " in only 5 days. See if you can do even better next time!");
@@ -504,21 +501,21 @@ class TradeState extends FlxState
 			_overlay_text = new FlxText(200, 224, 400, "You head home to sell off your extra stock. Tomorrow is a new day.");
 			_next_text = new FlxText(200, 445, 400, "Next Day");
 		}
-		
+
 		_overlay_header.setFormat("assets/fonts/GoodDog.otf", 64, 0xFF573A30, CENTER);
 		add(_overlay_header);
-		
+
 		_overlay_text.setFormat("assets/fonts/GoodDog.otf", 45, 0xFF573A30, CENTER);
 		add(_overlay_text);
-		
+
 		_overlay_button = new FlxButton(222, 420, "", nextDay);
 		_overlay_button.loadGraphic(AssetPaths.splashButton__png);
 		add(_overlay_button);
-		
+
 		_next_text.setFormat("assets/fonts/GoodDog.otf", 45, 0xFF573A30, CENTER);
 		add(_next_text);
 	}
-	
+
 	private function nextOverlay():Void
 	{
 		_overlay.destroy();
@@ -526,11 +523,11 @@ class TradeState extends FlxState
 		_overlay_text.destroy();
 		_overlay_button.destroy();
 		_next_text.destroy();
-		
+
 		add(_accept);
 		add(_decline);
 	}
-	
+
 	private function nextDay():Void
 	{
 		if (Reg.level == 4) {
@@ -549,8 +546,8 @@ class TradeState extends FlxState
 		var count:Int = 0;
 		var array:Array<Int> = null;
 
-		if (index == 0) array = _traders[_current].fruit_remaining_;
-		else    				array = _player.fruit_remaining_;
+		if (index == 0) array = _traders[_current]._fruit_remaining_;
+		else    				array = _player._fruit_remaining_;
 		while (iter < which)
 		{
 			if (array[iter] != 0) count += 1;
