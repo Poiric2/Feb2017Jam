@@ -1,7 +1,5 @@
 package sprites.fruit.product;
 
-import flixel.FlxSprite;
-
 class GrapeSprite extends FruitSprite
 {
 	public function new(X:Float, Y:Float)
@@ -9,4 +7,6 @@ class GrapeSprite extends FruitSprite
 			super(X, Y);
 			loadGraphic(AssetPaths.grape__png, true, 32, 32);
 	}
+
+	override public function create(X:Float, Y:Float):GrapeSprite { return new GrapeSprite(X,Y); }
 }

@@ -15,18 +15,19 @@ import sprites.ui.button.fruit.*;
 import sprites.ui.button.fruit.product.*;
 
 import flixel.FlxSprite;
-import flixel.text.FlxText;
-
 import flixel.FlxState;
 import flixel.FlxG;
-import flixel.ui.FlxButton;
-
 import flixel.math.FlxRandom;
+import flixel.text.FlxText;
+import flixel.ui.FlxButton;
 
 class TradeState extends FlxState
 {
 	private var _trader_sprite:Array<TraderSprite>;
 	private var _table_sprite:TableSprite;
+
+	private var _sprite_factory_:FruitSpriteFactory = new FruitSpriteFactory();
+	private var _button_factory_:FruitButtonFactory = new FruitButtonFactory();
 
 	private var _player:Player;
 	private var _fruits:Array<Array<FruitButton>>;
@@ -89,7 +90,7 @@ class TradeState extends FlxState
 		for (i in 0...2)
 		{
 			_trade_fruits[i] = new Array<Array<FruitSprite>>();
-			for (j in 0...TraderObject._options_.length)
+			for (j in 0...Fruit._options_.length)
 				_trade_fruits[i][j] = new Array<FruitSprite>();
 		}
 
@@ -181,25 +182,7 @@ class TradeState extends FlxState
 			// var type:String = TraderObject.options_[i];
 			if (amounts[i] > 0)
 			{
-				switch i
-				{
-					case 0:
-						_fruits[index][j] = new AppleButton(loc,delta,"",function():Void {_selected[index] = 0; _counters[index].setValue(_trade_fruits[index][_selected[index]].length);});
-					case 1:
-						_fruits[index][j] = new BananaButton(loc,delta,"",function():Void {_selected[index] = 1; _counters[index].setValue(_trade_fruits[index][_selected[index]].length);});
-					case 2:
-						_fruits[index][j] = new CoconutButton(loc,delta,"",function():Void {_selected[index] = 2; _counters[index].setValue(_trade_fruits[index][_selected[index]].length);});
-					case 3:
-						_fruits[index][j] = new GrapeButton(loc,delta,"",function():Void {_selected[index] = 3; _counters[index].setValue(_trade_fruits[index][_selected[index]].length);});
-					case 4:
-						_fruits[index][j] = new KiwiButton(loc,delta,"",function():Void {_selected[index] = 4; _counters[index].setValue(_trade_fruits[index][_selected[index]].length);});
-					case 5:
-						_fruits[index][j] = new PearButton(loc,delta,"",function():Void {_selected[index] = 5; _counters[index].setValue(_trade_fruits[index][_selected[index]].length);});
-					case 6:
-						_fruits[index][j] = new PlumButton(loc,delta,"",function():Void {_selected[index] = 6; _counters[index].setValue(_trade_fruits[index][_selected[index]].length);});
-					case 7:
-						_fruits[index][j] = new WatermelonButton(loc,delta,"",function():Void {_selected[index] = 7; _counters[index].setValue(_trade_fruits[index][_selected[index]].length);});
-				}
+				_fruits[index][j] =_button_factory_.makeProduct(i,loc,delta,"",function():Void {_selected[index] = i; _counters[index].setValue(_trade_fruits[index][_selected[index]].length);});
 
 				add(_fruits[index][j]);
 				delta += 32;
@@ -217,33 +200,8 @@ class TradeState extends FlxState
 			var text:FlxText = null;
 			if (_traders[_current]._fruit_remaining_[i] > 0)
 			{
-				switch i
-				{
-					case 0:
-						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
-						item = new AppleSprite(x,y);
-					case 1:
-						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
-						item = new BananaSprite(x,y);
-					case 2:
-						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
-						item = new CoconutSprite(x,y);
-					case 3:
-						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
-						item = new GrapeSprite(x,y);
-					case 4:
-						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
-						item = new KiwiSprite(x,y);
-					case 5:
-						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
-						item = new PearSprite(x,y);
-					case 6:
-						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
-						item = new PlumSprite(x,y);
-					case 7:
-						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
-						item = new WatermelonSprite(x,y);
-				}
+				text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
+				item = _sprite_factory_.makeProduct(i,x,y);
 
 				text.setFormat("assets/fonts/GoodDog.otf", 28, 0xFFFFFFFF, CENTER);
 
@@ -261,33 +219,8 @@ class TradeState extends FlxState
 			var text:FlxText = null;
 			if (_player._fruit_remaining_[i] > 0)
 			{
-				switch i
-				{
-					case 0:
-						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
-						item = new AppleSprite(x,y);
-					case 1:
-						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
-						item = new BananaSprite(x,y);
-					case 2:
-						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
-						item = new CoconutSprite(x,y);
-					case 3:
-						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
-						item = new GrapeSprite(x,y);
-					case 4:
-						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
-						item = new KiwiSprite(x,y);
-					case 5:
-						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
-						item = new PearSprite(x,y);
-					case 6:
-						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
-						item = new PlumSprite(x,y);
-					case 7:
-						text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
-						item = new WatermelonSprite(x,y);
-				}
+				item = _sprite_factory_.makeProduct(i,x,y);
+				text = new FlxText(x+32, y,32,""+TraderObject._prices_[i]);
 
 				text.setFormat("assets/fonts/GoodDog.otf", 28, 0xFFFFFFFF, CENTER);
 
@@ -569,27 +502,7 @@ class TradeState extends FlxState
 
 		x += index * 300;
 
-		var item:FruitSprite = null;
-
-		switch which
-		{
-			case 0:
-				item = new AppleSprite(x,y);
-			case 1:
-				item = new BananaSprite(x,y);
-			case 2:
-				item = new CoconutSprite(x,y);
-			case 3:
-				item = new GrapeSprite(x,y);
-			case 4:
-				item = new KiwiSprite(x,y);
-			case 5:
-				item = new PearSprite(x,y);
-			case 6:
-				item = new PlumSprite(x,y);
-			case 7:
-				item = new WatermelonSprite(x,y);
-		}
+		var item:FruitSprite = _sprite_factory_.makeProduct(which,x,y);
 
 		_trade_fruits[index][which].push(item);
 		add(_trade_fruits[index][which][_trade_fruits[index][which].length-1]);

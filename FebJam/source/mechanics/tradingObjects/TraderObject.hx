@@ -26,17 +26,6 @@ class TraderObject extends FlxBasic
 	/*                        in existance At all times                         */
 	/****************************************************************************/
 
-	// This contains all of the fruits that exist in the game
-	// This is immutable as the game will not need to change this
-	// This implicitly holds the ID's as the indices
-	public static var _options_(default, null):Array<String> = ["Apple",
-																													    "Banana",
-																													    "Coconut",
-																													    "Grape",
-																													    "Kiwi",
-																													    "Pear",
-																													    "Plum",
-																													    "Watermelon"];
 	// This contains all of the prices of the fruits
 	// Everything has access to this but this can be changed every day with the
 	// updatePrices function
@@ -59,7 +48,7 @@ class TraderObject extends FlxBasic
 		_fruit_remaining_ = new Array<Int>();
 
 		// Now default all the currently held fruits to nothing
-		_fruit_remaining_ = [for (i in 0...TraderObject._options_.length) 0];
+		_fruit_remaining_ = [for (i in 0...Fruit._options_.length) 0];
 
 		// Call super for FlxBasic functionality
 		super();
@@ -73,7 +62,7 @@ class TraderObject extends FlxBasic
 	// If the fruit does not exist return -1
 	public function howManybyName(name:String):Int
 	{
-		var how_many = TraderObject._options_.indexOf(name);
+		var how_many = Fruit._options_.indexOf(name);
 		if (how_many == -1) return -1;
 		return _fruit_remaining_[how_many];
 	}

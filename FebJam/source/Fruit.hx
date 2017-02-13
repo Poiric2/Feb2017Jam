@@ -1,5 +1,8 @@
 package;
 
+import sprites.fruit.*;
+import sprites.ui.button.fruit.*;
+
 import flixel.FlxSprite;
 import flixel.util.FlxColor;
 

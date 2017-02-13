@@ -1,7 +1,5 @@
 package sprites.fruit.product;
 
-import flixel.FlxSprite;
-
 class BananaSprite extends FruitSprite
 {
 	public function new(X:Float, Y:Float)
@@ -9,4 +7,6 @@ class BananaSprite extends FruitSprite
 			super(X, Y);
 			loadGraphic(AssetPaths.banana__png, true, 32, 32);
 	}
+
+	override public function create(X:Float, Y:Float):BananaSprite { return new BananaSprite(X,Y); }
 }

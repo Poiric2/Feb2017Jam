@@ -21,8 +21,8 @@ class Trader extends TraderObject
 
 			do
 			{
-				rand_fruit = _random_.int(0,TraderObject._options_.length);
-			} while(_fruit_remaining_[rand_fruit] != 0 || TraderObject._options_[rand_fruit] == "Kiwi");
+				rand_fruit = _random_.int(0,Fruit._options_.length);
+			} while(_fruit_remaining_[rand_fruit] != 0 || Fruit._options_[rand_fruit] == "Kiwi");
 
 			_fruit_remaining_[rand_fruit] = cast (100/num);
 		}
@@ -30,7 +30,7 @@ class Trader extends TraderObject
 		for (i in 0...3)
 		{
 			do {
-				rand_fruit = _random_.int(0,TraderObject._options_.length-1);
+				rand_fruit = _random_.int(0,Fruit._options_.length-1);
 			} while(_want_.indexOf(rand_fruit) != -1);
 
 			_want_.push(rand_fruit);

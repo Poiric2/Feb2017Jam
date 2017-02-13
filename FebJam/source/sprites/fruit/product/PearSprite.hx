@@ -1,7 +1,5 @@
 package sprites.fruit.product;
 
-import flixel.FlxSprite;
-
 class PearSprite extends FruitSprite
 {
 	public function new(X:Float, Y:Float)
@@ -9,4 +7,6 @@ class PearSprite extends FruitSprite
 			super(X, Y);
 			loadGraphic(AssetPaths.pear__png, true, 32, 32);
 	}
+
+	override public function create(X:Float, Y:Float):PearSprite { return new PearSprite(X,Y); }
 }

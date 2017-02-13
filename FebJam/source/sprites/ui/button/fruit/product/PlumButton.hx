@@ -1,7 +1,5 @@
 package sprites.ui.button.fruit.product;
 
-import flixel.FlxSprite;
-
 class PlumButton extends FruitButton
 {
 	public function new(X:Float, Y:Float, text:String, func:Void->Void)
@@ -9,4 +7,6 @@ class PlumButton extends FruitButton
 			super(X, Y,text,func);
 			loadGraphic(AssetPaths.plum__png, true, 32, 32);
 	}
+
+	override public function create(X:Float, Y:Float,text:String,func:Void->Void):PlumButton { return new PlumButton(X,Y,text,func); }
 }

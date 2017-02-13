@@ -1,7 +1,5 @@
 package sprites.fruit.product;
 
-import flixel.FlxSprite;
-
 class CoconutSprite extends FruitSprite
 {
 	public function new(X:Float, Y:Float)
@@ -9,4 +7,6 @@ class CoconutSprite extends FruitSprite
 			super(X, Y);
 			loadGraphic(AssetPaths.coconut__png, true, 32, 32);
 	}
+
+	override public function create(X:Float, Y:Float):CoconutSprite { return new CoconutSprite(X,Y); }
 }

@@ -1,7 +1,5 @@
 package sprites.fruit.product;
 
-import flixel.FlxSprite;
-
 class AppleSprite extends FruitSprite
 {
 	public function new(X:Float, Y:Float)
@@ -9,4 +7,6 @@ class AppleSprite extends FruitSprite
 			super(X, Y);
 			loadGraphic(AssetPaths.apple__png, true, 32, 32);
 	}
+
+	override public function create(X:Float, Y:Float):AppleSprite { return new AppleSprite(X,Y); }
 }
